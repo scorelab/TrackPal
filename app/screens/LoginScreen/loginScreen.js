@@ -226,17 +226,16 @@ export default class LoginScreen extends Component {
     if (isLogging || showSpinner) {
       return (
         <ImageBackground
-          source={require("../../images/landing.jpg")}
+          source={require("../../images/bg_image.png")}
           style={{ width: "100%", height: "100%", flex: 1 }}
         >
           <View style={styles.firstContainer}>
             <ScrollView style={styles.scrollStyle}>
               <View style={styles.container2}>
                 <Image
-                  source={require("../../images/logo.png")}
+                  source={require("../../images/New2.png")}
                   style={styles.logo}
                 />
-                <WaveIndicator color="black" style={styles.indicator} />
               </View>
               <View style={styles.container}>
                 <ActivityIndicator size="large" color="#0000ff" />
@@ -248,41 +247,54 @@ export default class LoginScreen extends Component {
     } else {
       return (
         <ImageBackground
-          source={require("../../images/landing.jpg")}
+          source={require("../../images/bg_image.png")}
           style={{ width: "100%", height: "100%", flex: 1 }}
         >
           <View style={styles.firstContainer}>
             <ScrollView style={styles.scrollStyle}>
               <View style={styles.container2}>
                 <Image
-                  source={require("../../images/logo.png")}
+                  source={require("../../images/New2.png")}
                   style={styles.logo}
                 />
-                <WaveIndicator color="black" />
               </View>
 
               {this.state.social === false ? (
                 <View style={styles.container}>
+                  <Text style={styles.privacyText}>
+                    by tapping Login, you agree with our Tearms of
+                  </Text>
+                  <Text style={styles.privacyText}>
+                    {" "}
+                    service and Privacy Policy
+                  </Text>
                   <TouchableOpacity onPress={this.onPressLogin.bind(this)}>
                     <SocialIcon
-                      style={{ width: 200, marginBottom:20 }}
-                      title="Sign in with Facebook"
+                      style={{ width: 300, height: 50 }}
+                      title="LOGIN WITH FACEBOOK"
                       button
                       type="facebook"
                     />
                   </TouchableOpacity>
 
                   <GoogleSigninButton
-                    style={{ width: 192, height: 48 }}
+                    style={{ width: 300, height: 50 }}
                     size={GoogleSigninButton.Size.Wide}
                     color={GoogleSigninButton.Color.Dark}
                     onPress={this._googleSignIn}
                   />
 
-                  <TouchableOpacity onPress={()=> this.props.navigation.navigate("noAuthed")}>
+                  <TouchableOpacity
+                    onPress={() => this.setState({ social: true })}
+                  >
                     <SocialIcon
-                      style={{ width: 200, height:50, marginTop:50 }}
-                      title="Sign in Later"
+                      style={{
+                        width: 300,
+                        height: 50,
+                        borderWidth: 1,
+                        borderColor: "white"
+                      }}
+                      title="LOGIN WITH EMAIL"
                       button
                     />
                   </TouchableOpacity>
@@ -293,14 +305,14 @@ export default class LoginScreen extends Component {
                     <TextInput
                       placeholder="Email"
                       keyboardType="email-address"
-                      placeholderTextColor="rgba(0,0,0,0.5)"
+                      placeholderTextColor="white"
                       style={styles.input}
                       onChangeText={text => this.setState({ email: text })}
                     />
                     <TextInput
                       placeholder="Pasword"
                       secureTextEntry={true}
-                      placeholderTextColor="rgba(0,0,0,0.5)"
+                      placeholderTextColor="white"
                       style={styles.input}
                       onChangeText={text => this.setState({ password: text })}
                     />
@@ -308,20 +320,18 @@ export default class LoginScreen extends Component {
                       style={styles.loginTouchableOpacity}
                       onPress={this._signInAsync}
                     >
-                      <Text style={styles.loginText}>Login</Text>
+                      <Text style={styles.loginText}>LOGIN</Text>
                     </TouchableOpacity>
                   </View>
                 </KeyboardAvoidingView>
               )}
 
-              {this.state.social === false ? (
+{this.state.social === false ? (
                 <View style={styles.container3}>
                   <TouchableOpacity
-                    onPress={() => this.setState({ social: true })}
+                    onPress={() => this.props.navigation.navigate("SignUp")}
                   >
-                    <Text style={styles.text}>
-                      Login with Email and Password
-                    </Text>
+                    <Text style={styles.text}>I don't have an account</Text>
                   </TouchableOpacity>
                 </View>
               ) : (
@@ -329,7 +339,7 @@ export default class LoginScreen extends Component {
                   <TouchableOpacity
                     onPress={() => this.props.navigation.navigate("SignUp")}
                   >
-                    <Text style={styles.text}>Don't have an account?</Text>
+                    <Text style={styles.text}>I don't have an account</Text>
                   </TouchableOpacity>
                   <View>
                     <Text style={styles.orText}>or</Text>
