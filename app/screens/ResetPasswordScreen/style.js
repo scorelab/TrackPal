@@ -6,8 +6,7 @@ let deveiceHeight = Dimensions.get("window").height;
 export default StyleSheet.create({
   firstContainer: {
     flex: 1,
-    alignItems: "center",
-    backgroundColor: "rgba(255, 255, 255, 0.7)"
+    alignItems: "center"
   },
   container: {
     flex: 1,
@@ -19,7 +18,7 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
     marginBottom: 30,
-    marginTop: deveiceHeight / 8
+    marginTop: deveiceHeight / 5
   },
   container3: {
     flex: 0.5,
@@ -31,45 +30,48 @@ export default StyleSheet.create({
     flex: 1
   },
   input: {
-    height: 45,
+    height: 60,
     width: deviceWidth * 0.8,
-    borderRadius: 5,
-    backgroundColor: "white",
+    borderRadius: 50,
+    backgroundColor: "rgba(0,0,0,0.2)",
     marginBottom: 15,
-    color: "black",
-    paddingHorizontal: 10
+    color: "white",
+    paddingHorizontal: 10,
+    borderColor: "#fff",
+    textAlign: "center",
+    borderWidth: 1
   },
   containerNew: {
     alignItems: "center",
     justifyContent: "flex-start",
-    backgroundColor: "rgba(0,0,0,0.1)",
     borderRadius: 50,
-    padding: 50
   },
-  loginTouchableOpacity: {
+  resetTouchableOpacity: {
     alignItems: "center",
-    backgroundColor: "#3c5898",
-    padding: 15,
-    margin: 10,
+    backgroundColor: "white",
+    padding: 22,
     borderRadius: 50,
-    width: 150
+    width: 330,
+    height: 60,
+    marginTop: 10
   },
-  loginText: {
+  resetText: {
     fontSize: 16,
-    color: "white"
-  },
-  text: {
     color: "black"
   },
-  container4:{
+  text: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16
+  },
+  container4: {
     flex: 0.5,
     alignItems: "center",
     justifyContent: "flex-start",
     marginTop: 25
   },
   logo: {
-      width: 250,
-      height: 100,
-
+    width: "100%",
+    height: 100
   }
 });
