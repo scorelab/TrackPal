@@ -102,7 +102,7 @@ export default class SignUpScreen extends Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../images/landing.jpg")}
+        source={require("../../images/bg_image.png")}
         style={{ width: "100%", height: "100%", flex: 1 }}
       >
         <View style={styles.firstContainer}>
@@ -110,37 +110,36 @@ export default class SignUpScreen extends Component {
             <View style={styles.container}>
               <KeyboardAvoidingView behavior="position">
                 <View style={styles.logoContainer}>
-                <Image
-                  source={require("../../images/logo.png")}
-                  style={styles.logo}
-                />
-                  <WaveIndicator color="black" style={styles.indicator} />
+                  <Image
+                    source={require("../../images/New2.png")}
+                    style={styles.logo}
+                  />
                 </View>
                 <View style={styles.formContainer}>
                   <TextInput
-                    placeholder="Name"
-                    placeholderTextColor="rgba(0,0,0,0.5)"
+                    placeholder="Your Name"
+                    placeholderTextColor="white"
                     style={styles.input}
                     onChangeText={text => this.setState({ name: text })}
                   />
                   <TextInput
-                    placeholder="Email"
+                    placeholder="Your Email"
                     keyboardType="email-address"
-                    placeholderTextColor="rgba(0,0,0,0.5)"
+                    placeholderTextColor="white"
                     style={styles.input}
                     onChangeText={text => this.setState({ email: text })}
                   />
                   <TextInput
                     placeholder="Pasword"
                     secureTextEntry={true}
-                    placeholderTextColor="rgba(0,0,0,0.5)"
+                    placeholderTextColor="white"
                     style={styles.input}
                     onChangeText={text => this.setState({ Password: text })}
                   />
                   <TextInput
                     placeholder="Confirm Pasword"
                     secureTextEntry={true}
-                    placeholderTextColor="rgba(0,0,0,0.5)"
+                    placeholderTextColor="white"
                     style={styles.input}
                     onChangeText={text =>
                       this.setState({ ConfirmPassword: text })
@@ -148,24 +147,26 @@ export default class SignUpScreen extends Component {
                   />
                 </View>
               </KeyboardAvoidingView>
+              <Text style={styles.privacyText}>
+                by tapping SignIn, you agree with our Tearms of
+              </Text>
+              <Text style={styles.privacyText}>
+                {" "}
+                service and Privacy Policy
+              </Text>
               <TouchableOpacity
                 onPress={this.signUpAsync}
-                style={styles.loginButton}
+                style={styles.signInButton}
               >
-                <Text style={styles.buttonText}>Sign Up</Text>
+                <Text style={styles.buttonText}>SIGN ME UP</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity>
-                <Text style={styles.text}>or</Text>
-              </TouchableOpacity>
+              <TouchableOpacity />
               <View style={styles.signInTextArea}>
                 <TouchableOpacity
                   onPress={() => this.props.navigation.navigate("Login")}
                 >
-                  <Text style={styles.text}>
-                    Already have an account?
-                    <Text style={{ color: "#0066cc" }}> Sign In</Text>
-                  </Text>
+                  <Text style={styles.text}>I already have an Account</Text>
                 </TouchableOpacity>
               </View>
             </View>
