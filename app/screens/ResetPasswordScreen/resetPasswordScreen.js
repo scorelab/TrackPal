@@ -24,17 +24,16 @@ export default class ResetPasswordScreen extends Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../images/landing.jpg")}
+        source={require("../../images/bg_image.png")}
         style={{ width: "100%", height: "100%", flex: 1 }}
       >
         <View style={styles.firstContainer}>
           <ScrollView style={styles.scrollStyle}>
             <View style={styles.container2}>
               <Image
-                source={require("../../images/logo.png")}
+                source={require("../../images/New2.png")}
                 style={styles.logo}
               />
-              <WaveIndicator color="black" />
             </View>
 
             <KeyboardAvoidingView behavior="position">
@@ -42,20 +41,20 @@ export default class ResetPasswordScreen extends Component {
                 <TextInput
                   placeholder="Email"
                   keyboardType="email-address"
-                  placeholderTextColor="rgba(0,0,0,0.5)"
+                  placeholderTextColor="white"
                   style={styles.input}
                   onChangeText={text => this.setState({ email: text })}
                 />
                 <TouchableOpacity
                   onPress={this.resetPassword}
-                  style={styles.loginTouchableOpacity}
+                  style={styles.resetTouchableOpacity}
                 >
-                  <Text style={styles.loginText}>Reset Password</Text>
+                  <Text style={styles.resetText}>Reset Password</Text>
                 </TouchableOpacity>
               </View>
             </KeyboardAvoidingView>
             <View style={styles.container4}>
-              <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Login")}>
                 <Text style={styles.text}>Go Back To Login</Text>
               </TouchableOpacity>
             </View>
