@@ -1,76 +1,73 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from "react-native";
 
 let deviceWidth = Dimensions.get("window").width;
 let deveiceHeight = Dimensions.get("window").height;
 
 export default StyleSheet.create({
+  firstContainer: {
+    flex: 1
+  },
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-start"
+  },
 
-    firstContainer: {
-        flex: 1,
-        backgroundColor: "rgba(255, 255, 255, 0.7)"
-    },
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-    },
-
-    scrollStyle: {
-        flex: 1
-    },
-    logoContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: deveiceHeight / 15,
-        marginBottom: 30,
-        height: 100,
-    },
-    logo: {
-        width: 100,
-        height: 100,
-    },
-    formContainer: {
-        paddingTop: 20,
-        borderRadius: 50,
-        backgroundColor: "rgba(0, 0, 0, 0.1)",
-        padding: 40,
-        paddingTop:50,
-        marginBottom: 10
-    },
-    input: {
-        height: 45,
-        width: deviceWidth * 0.8,
-        borderRadius: 5,
-        backgroundColor: 'white',
-        marginBottom: 15,
-        color: 'black',
-        paddingHorizontal: 10
-    },
-    loginButton: {
-        width: deviceWidth * 0.8,
-        height: 45,
-        borderRadius: 5,
-        borderWidth: 0,
-        backgroundColor: '#3c5898',
-        marginBottom: 15,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    buttonText: {
-        fontSize: 16,
-        color: 'white'
-    },
-    logo: {
-        width: 250,
-        height: 100,
-  
-    },
-    text: {
-        color: 'black',
-        marginBottom: 5
-    },
-    signInTextArea: {
-        alignItems: 'center',
-        marginTop: 25
-    }
+  scrollStyle: {
+    flex: 1
+  },
+  logoContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: deveiceHeight / 5
+  },
+  logo: {
+    width: 100,
+    height: 100
+  },
+  formContainer: {
+    paddingTop: 20,
+    borderRadius: 50,
+  },
+  input: {
+    height: 60,
+    width: deviceWidth * 0.8,
+    borderRadius: 50,
+    backgroundColor: "rgba(0,0,0,0.2)",
+    marginBottom: 15,
+    color: "white",
+    paddingHorizontal: 10,
+    borderColor: "#fff",
+    textAlign: "center",
+    borderWidth: 1
+  },
+  signInButton: {
+    alignItems: "center",
+    backgroundColor: "white",
+    padding: 22,
+    borderRadius: 50,
+    width: 330,
+    height: 60,
+    marginTop: 10
+  },
+  buttonText: {
+    fontSize: 16,
+    color: "black"
+  },
+  logo: {
+    width: "100%",
+    height: 100
+  },
+  text: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16
+  },
+  signInTextArea: {
+    alignItems: "center",
+    marginTop: 25
+  },
+  privacyText: {
+    color: "white",
+  }
 });
