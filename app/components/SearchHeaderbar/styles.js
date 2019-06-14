@@ -5,12 +5,13 @@ let deviceHeight = Dimensions.get("window").height;
 
 export default StyleSheet.create({
   navigationBar: {
-    backgroundColor: "#00aced",
+    backgroundColor: "white",
     height: 55,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%"
+    width: "100%",
+    marginTop: 5
   },
   leftIconContainer: {
     marginLeft: 10,
@@ -25,7 +26,7 @@ export default StyleSheet.create({
   titleArea: {
     width: deviceWidth * 0.9,
     alignItems: "center",
-    flexDirection: 'row',
+    flexDirection: "row"
   },
 
   //Text
@@ -46,8 +47,16 @@ export default StyleSheet.create({
     borderRadius: 5,
     color: "black",
     paddingHorizontal: 10,
-    borderColor: 'rgba(0,0,0,0.1)', 
+    borderColor: "rgba(0,0,0,0.1)",
     borderWidth: 1,
-    marginLeft:20
+    marginLeft: 20
+  },
+  profileImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    marginLeft: 10,
+    borderColor: "blue",
+    borderWidth: 2
   }
 });
