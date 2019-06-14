@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import {
-  Alert,
   View,
   ScrollView,
   ActivityIndicator,
   Text,
   KeyboardAvoidingView,
   TextInput,
-  TouchableOpacity,
-  BackHandler
+  TouchableOpacity
 } from "react-native";
 import HeaderBar from "../../components/HeaderBar/headerBar.js";
 import ListItems from "../../components/ListComponent/listItemComponent.js";
 import styles from "./style.js";
 import { Icon } from "react-native-elements";
 import Modal from "react-native-modal";
-import SearchHeaderBar from "../../components/SearchHeaderbar/searchHeaderbar.js"
+import SearchHeaderBar from "../../components/SearchHeaderbar/searchHeaderbar.js";
 
 import { f, database } from "../../../config/config.js";
 
@@ -33,7 +31,6 @@ export default class BusScreen extends Component {
   }
 
   componentDidMount() {
-
     var that = this;
     database.ref("/BusDetails").on("value", function(snapshot) {
       that.setState({
@@ -165,7 +162,8 @@ export default class BusScreen extends Component {
           </Modal>
 
           {/* <HeaderBar title={"Track Your Bus"} /> */}
-          <SearchHeaderBar/>
+          <SearchHeaderBar />
+          <Text style={styles.feedText}>Your feed</Text>
           <ScrollView
             style={styles.scrollView}
             contentContainerStyle={styles.scrollViewContent}
@@ -178,10 +176,10 @@ export default class BusScreen extends Component {
                   // details that are posted by current user
                   return (
                     <ListItems
-                      name={
-                        objects.from.title2 + "  ------>  " + objects.to.title1
-                      }
+                      from={objects.from.title2}
+                      to={objects.to.title1}
                       posted={"Route No:  " + objects.routeNo}
+                      userID={objects.key}
                       userImage={require("../../images/bus/bus.jpg")}
                       message="This is your shared details. Tap to view"
                       onPress={() =>
