@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextInput, View, Text } from "react-native";
+import { TextInput, View, Image, Text } from "react-native";
 import styles from "./styles.js";
 import { Icon } from "react-native-elements";
 
@@ -20,7 +20,7 @@ export default class SearchHeaderBar extends Component {
               <Icon
                 name="arrow-back"
                 type="Ionicons"
-                color="white"
+                color="black"
                 onPress={() => this.setState({ searchEnabled: false })}
               />
               <TextInput
@@ -32,25 +32,32 @@ export default class SearchHeaderBar extends Component {
             </View>
           ) : (
             <View style={styles.titleArea}>
-              <Text
-                style={{
-                  fontSize: 24,
-                  color: "white",
-                  paddingLeft: 15,
-                  paddingRight: 230
-                }}
-              >
-                TrackPal
-              </Text>
-              <View style={{ paddingLeft: 25 }}>
+               <Image
+                  style={styles.profileImage}
+                  source={require("../../images/user_image_1.jpg")}
+                />
+              <View style={{ marginLeft: 220 }}>
                 <Icon
                   name="search"
                   type="EvilIcons"
-                  color="white"
+                  color="black"
                   containerStyle={{
-                    borderRadius: 100,
-                    borderColor: "white",
-                    borderWidth: 1
+                    borderRadius: 50,
+                    backgroundColor: "rgba(0,0,0,0.1115)",
+                    padding: 5
+                  }}
+                  onPress={() => this.setState({ searchEnabled: true })}
+                />
+              </View>
+              <View style={{ marginLeft: 15 }}>
+                <Icon
+                  name="search"
+                  type="EvilIcons"
+                  color="black"
+                  containerStyle={{
+                    borderRadius: 50,
+                    backgroundColor: "rgba(0,0,0,0.1115)",
+                    padding: 5
                   }}
                   onPress={() => this.setState({ searchEnabled: true })}
                 />
