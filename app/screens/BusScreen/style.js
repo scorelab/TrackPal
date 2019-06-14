@@ -10,8 +10,7 @@ export default StyleSheet.create({
     width: "100%"
   },
   scrollView: {
-    width: "100%",
-    backgroundColor: "#e8e8e8"
+    width: "100%"
   },
   scrollViewContent: {
     alignItems: "center",
@@ -36,12 +35,19 @@ export default StyleSheet.create({
     height: 50,
     width: 150,
     alignItems: "center",
-    marginLeft:50,
-    borderRadius:50
+    marginLeft: 50,
+    borderRadius: 50
   },
   filterText: {
     color: "white",
-    marginTop:12,
+    marginTop: 12,
     fontSize: 20
+  },
+  feedText: {
+    fontSize: 30,
+    marginRight: deviceWidth*0.6,
+    padding: 10,
+    fontWeight: "bold",
+    color: "black"
   }
 });
