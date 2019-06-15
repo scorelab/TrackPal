@@ -22,6 +22,7 @@
     "react-native-modal": "^11.0.1",
     "react-native-svg": "^9.5.1",
     "react-native-svg-uri": "^1.2.3",
+    "react-native-touchable-scale": "^2.0.0",
     "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.6.1"
   },
