@@ -33,7 +33,7 @@ export default StyleSheet.create({
     alignItems: "flex-start"
   },
   meaasageRow: {
-    marginTop: deviceHeight*0.15,
+    marginTop: deviceHeight * 0.15,
     flexDirection: "row"
   },
   headerRow: {
@@ -104,5 +104,33 @@ export default StyleSheet.create({
     color: "#4e5861",
     fontWeight: "bold"
   },
-  mapStyle: { height: 100, width: 345, borderRadius: 10 }
+  mapStyle: { height: 100, width: 345, borderRadius: 10 },
+
+  coulumnStyle: {
+    width: deviceWidth / 3.6,
+    height: 50
+  },
+  sharedUserImage: {
+    height: 40,
+    width: 40,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: "blue",
+    marginLeft: 70
+  },
+  CustomIconStyle_1: { marginTop: 2, marginLeft: 10, color: "black" },
+  textStyle_1: {
+    fontWeight: "bold",
+    fontSize: 16,
+    marginRight: 5,
+    marginLeft: 5,
+    color: "black"
+  },
+  textStyle_2: { marginTop: 5, fontWeight: "bold" },
+  viewStyle_1: {
+    flexDirection: "row",
+    borderColor: "rgba(0,0,0,0.1115)",
+    borderWidth: 1,
+    borderRadius: 5
+  },
 });
