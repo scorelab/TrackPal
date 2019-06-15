@@ -41,11 +41,8 @@ export default class SearchHeaderBar extends Component {
                 <CustomIcon
                   name="search"
                   color="black"
-                  style={{
-                    borderRadius: 50,
-                    backgroundColor: "rgba(0,0,0,0.1115)",
-                    padding: 15,
-                  }}
+                  style={styles.customIcon}
+                  size={20}
                   onPress={() => this.setState({ searchEnabled: true })}
                 />
               </View>
@@ -53,11 +50,8 @@ export default class SearchHeaderBar extends Component {
                 <CustomIcon
                   name="bell"
                   color="black"
-                  style={{
-                    borderRadius: 50,
-                    backgroundColor: "rgba(0,0,0,0.1115)",
-                    padding: 15
-                  }}
+                  style={styles.customIcon}
+                  size={20}
                   onPress={() => this.setState({ searchEnabled: true })}
                 />
               </View>

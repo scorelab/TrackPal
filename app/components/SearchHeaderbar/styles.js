@@ -31,16 +31,6 @@ export default StyleSheet.create({
 
   //Text
 
-  titleFont: {
-    fontSize: 18,
-    color: "white"
-  },
-
-  filterText: {
-    color: "white",
-    marginTop: 12,
-    fontSize: 20
-  },
   input: {
     height: 45,
     width: deviceWidth * 0.7,
@@ -58,5 +48,10 @@ export default StyleSheet.create({
     marginLeft: 10,
     borderColor: "blue",
     borderWidth: 2
+  },
+  customIcon:{
+    borderRadius: 50,
+    backgroundColor: "rgba(0,0,0,0.1115)",
+    padding: 10,
   }
 });
