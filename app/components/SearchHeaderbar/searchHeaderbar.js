@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { TextInput, View, Image, Text } from "react-native";
 import styles from "./styles.js";
 import { Icon } from "react-native-elements";
+import CustomIcon from "../../../resources/customIcon.js";
 
 export default class SearchHeaderBar extends Component {
   constructor(props) {
@@ -37,27 +38,25 @@ export default class SearchHeaderBar extends Component {
                   source={require("../../images/user_image_1.jpg")}
                 />
               <View style={{ marginLeft: 220 }}>
-                <Icon
+                <CustomIcon
                   name="search"
-                  type="EvilIcons"
                   color="black"
-                  containerStyle={{
+                  style={{
                     borderRadius: 50,
                     backgroundColor: "rgba(0,0,0,0.1115)",
-                    padding: 5
+                    padding: 15,
                   }}
                   onPress={() => this.setState({ searchEnabled: true })}
                 />
               </View>
               <View style={{ marginLeft: 15 }}>
-                <Icon
-                  name="search"
-                  type="EvilIcons"
+                <CustomIcon
+                  name="bell"
                   color="black"
-                  containerStyle={{
+                  style={{
                     borderRadius: 50,
                     backgroundColor: "rgba(0,0,0,0.1115)",
-                    padding: 5
+                    padding: 15
                   }}
                   onPress={() => this.setState({ searchEnabled: true })}
                 />
