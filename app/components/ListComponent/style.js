@@ -9,7 +9,7 @@ export default StyleSheet.create({
     width: "88%",
     backgroundColor: "#fff",
     borderRadius: 15,
-    height: 200,
+    height: 210,
     alignItems: "center",
     justifyContent: "flex-start",
     marginTop: 10
