@@ -8,6 +8,7 @@ import {
 } from "react-navigation";
 
 import Ionicons from "react-native-vector-icons/FontAwesome5";
+import CustomIcon from "./resources/customIcon.js";
 
 // importing screens
 import LoginScreen from "./app/screens/LoginScreen/loginScreen.js";
@@ -24,8 +25,7 @@ import ResetPasswordScreen from "./app/screens/ResetPasswordScreen/resetPassword
 const ScreenStack = createBottomTabNavigator(
   {
     Bus: { screen: BusScreen },
-    Train: { screen: TrainScreen },
-    Profile: { screen: Profile }
+    Train: { screen: TrainScreen }
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -35,11 +35,20 @@ const ScreenStack = createBottomTabNavigator(
         if (routeName === "Bus") {
           iconName = "bus";
         } else if (routeName === "Train") {
-          iconName = "train";
-        } else if (routeName === "Profile") {
-          iconName = "user";
+          iconName = "train_";
         }
-        return <Ionicons name={iconName} size={25} color={tintColor} />;
+        return (
+          <CustomIcon
+            name={iconName}
+            size={20}
+            color={tintColor}
+            style={{
+              borderRadius: 100,
+              backgroundColor: "rgba(0,0,0,0.1115)",
+              padding: 5
+            }}
+          />
+        );
       }
     }),
     tabBarOptions: {
@@ -63,9 +72,20 @@ const nonAuthScreenStack = createBottomTabNavigator(
         if (routeName === "Bus") {
           iconName = "bus";
         } else if (routeName === "Train") {
-          iconName = "train";
+          iconName = "train_";
         }
-        return <Ionicons name={iconName} size={25} color={tintColor} />;
+        return (
+          <CustomIcon
+            name={iconName}
+            size={25}
+            color={tintColor}
+            style={{
+              borderRadius: 50,
+              backgroundColor: "rgba(0,0,0,0.1115)",
+              padding: 10
+            }}
+          />
+        );
       }
     }),
     tabBarOptions: {
@@ -110,7 +130,7 @@ const SwitchNav = createSwitchNavigator({
     screen: LoginScreen
   },
   Dashboard: AuthStack
-})
+});
 
 class App extends Component {
   render() {
