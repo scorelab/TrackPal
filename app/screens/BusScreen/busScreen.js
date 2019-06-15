@@ -6,7 +6,8 @@ import {
   Text,
   KeyboardAvoidingView,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 import HeaderBar from "../../components/HeaderBar/headerBar.js";
 import ListItems from "../../components/ListComponent/listItemComponent.js";
@@ -14,6 +15,8 @@ import styles from "./style.js";
 import { Icon } from "react-native-elements";
 import Modal from "react-native-modal";
 import SearchHeaderBar from "../../components/SearchHeaderbar/searchHeaderbar.js";
+import TouchbleScale from "react-native-touchable-scale";
+import SvgUri from "react-native-svg-uri";
 
 import { f, database } from "../../../config/config.js";
 
@@ -96,8 +99,8 @@ export default class BusScreen extends Component {
     if (this.state.indicator) {
       return (
         <View style={styles.container}>
-          <HeaderBar title={"Track Your Bus"} />
-
+           <SearchHeaderBar />
+           <Text style={styles.feedText}>Your feed</Text>
           <ScrollView
             style={styles.scrollView}
             contentContainerStyle={styles.scrollViewContent}
@@ -107,22 +110,21 @@ export default class BusScreen extends Component {
               <ActivityIndicator size="large" color="#0000ff" />
             </View>
           </ScrollView>
-          <Icon
-            name="add"
-            reverse
-            raised
-            color="red"
-            containerStyle={{
-              position: "absolute",
-              marginTop: "150%",
-              paddingLeft: "75%"
-            }}
+          <TouchbleScale
+            style={styles.shareLocationTouchableScale}
             onPress={() =>
               this.props.navigation.navigate("ShareLocation", {
                 prevScreen: "BusScreen"
               })
             }
-          />
+          >
+            <View elevation={5}>
+              <Image
+                source={require("../../images/updated_logo.png")}
+                style={styles.shareLocationImage}
+              />
+            </View>
+          </TouchbleScale>
         </View>
       );
     } else {
@@ -161,7 +163,6 @@ export default class BusScreen extends Component {
             </View>
           </Modal>
 
-          {/* <HeaderBar title={"Track Your Bus"} /> */}
           <SearchHeaderBar />
           <Text style={styles.feedText}>Your feed</Text>
           <ScrollView
@@ -209,23 +210,22 @@ export default class BusScreen extends Component {
               }
             })}
           </ScrollView>
-          <Icon
-            name="add"
-            reverse
-            raised
-            color="red"
-            containerStyle={{
-              position: "absolute",
-              marginTop: "150%",
-              paddingLeft: "75%"
-            }}
+          <TouchbleScale
+            style={styles.shareLocationTouchableScale}
             onPress={() =>
               this.props.navigation.navigate("ShareLocation", {
                 prevScreen: "BusScreen"
               })
             }
-          />
-          <Icon
+          >
+            <View elevation={5}>
+              <Image
+                source={require("../../images/updated_logo.png")}
+                style={styles.shareLocationImage}
+              />
+            </View>
+          </TouchbleScale>
+          {/* <Icon
             name="search"
             reverse
             raised
@@ -236,7 +236,7 @@ export default class BusScreen extends Component {
               paddingRight: "60%"
             }}
             onPress={this.toggleModal}
-          />
+          /> */}
         </View>
       );
     }
