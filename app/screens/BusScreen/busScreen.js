@@ -178,8 +178,9 @@ export default class BusScreen extends Component {
                     <ListItems
                       from={objects.from.title2}
                       to={objects.to.title1}
-                      posted={"Route No:  " + objects.routeNo}
+                      posted={objects.routeNo}
                       userID={objects.key}
+                      screen="bus"
                       userImage={require("../../images/bus/bus.jpg")}
                       message="This is your shared details. Tap to view"
                       onPress={() =>
@@ -191,10 +192,11 @@ export default class BusScreen extends Component {
                 } else {
                   return (
                     <ListItems
-                      name={
-                        objects.from.title2 + "  ------>  " + objects.to.title1
-                      }
-                      posted={"Route No:  " + objects.routeNo}
+                      from={objects.from.title2}
+                      to={objects.to.title1}
+                      posted={objects.routeNo}
+                      userID={objects.key}
+                      screen="bus"
                       userImage={require("../../images/bus/bus.jpg")}
                       message="Posted by someone else. Tap to view location sharing and shared person's details."
                       onPress={() =>
