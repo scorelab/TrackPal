@@ -6,12 +6,13 @@ import {
   ActivityIndicator,
   KeyboardAvoidingView,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
-import HeaderBar from "../../components/HeaderBar/headerBar.js";
+import SearchHeaderBar from "../../components/SearchHeaderbar/searchHeaderbar.js";
 import ListItems from "../../components/ListComponent/listItemComponent.js";
 import styles from "./style.js";
-import { Icon } from "react-native-elements";
+import TouchbleScale from "react-native-touchable-scale";
 import Modal from "react-native-modal";
 
 import { f, database } from "../../../config/config.js";
@@ -94,8 +95,8 @@ export default class TrainScreen extends Component {
     if (this.state.indicator) {
       return (
         <View style={styles.container}>
-          <HeaderBar title={"Track Your Train"} />
-
+          <SearchHeaderBar />
+          <Text style={styles.feedText}>Your feed</Text>
           <ScrollView
             style={styles.scrollView}
             contentContainerStyle={styles.scrollViewContent}
@@ -105,22 +106,21 @@ export default class TrainScreen extends Component {
               <ActivityIndicator size="large" color="#0000ff" />
             </View>
           </ScrollView>
-          <Icon
-            name="add"
-            reverse
-            raised
-            color="red"
-            containerStyle={{
-              position: "absolute",
-              marginTop: "150%",
-              paddingLeft: "75%"
-            }}
+          <TouchbleScale
+            style={styles.shareLocationTouchableScale}
             onPress={() =>
               this.props.navigation.navigate("ShareLocation", {
                 prevScreen: "TrainScreen"
               })
             }
-          />
+          >
+            <View elevation={5}>
+              <Image
+                source={require("../../images/updated_logo.png")}
+                style={styles.shareLocationImage}
+              />
+            </View>
+          </TouchbleScale>
         </View>
       );
     } else {
@@ -159,7 +159,8 @@ export default class TrainScreen extends Component {
             </View>
           </Modal>
 
-          <HeaderBar title={"Track Your Train"} />
+          <SearchHeaderBar />
+          <Text style={styles.feedText}>Your feed</Text>
           <ScrollView
             style={styles.scrollView}
             contentContainerStyle={styles.scrollViewContent}
@@ -170,9 +171,10 @@ export default class TrainScreen extends Component {
                 if (objects.key === currentUserID) {
                   return (
                     <ListItems
-                      name={
-                        objects.from.title2 + "  ------>  " + objects.to.title1
-                      }
+                      from={objects.from.title2}
+                      to={objects.to.title1}
+                      userID={objects.key}
+                      screen="train_"
                       posted={objects.trainName}
                       userImage={require("../../images/train/traine.jpg")}
                       message="This is your shared details. Tap to view"
@@ -185,9 +187,10 @@ export default class TrainScreen extends Component {
                 } else {
                   return (
                     <ListItems
-                      name={
-                        objects.from.title2 + "  ------>  " + objects.to.title1
-                      }
+                      from={objects.from.title2}
+                      to={objects.to.title1}
+                      userID={objects.key}
+                      screen="train_"
                       posted={objects.trainName}
                       userImage={require("../../images/train/traine.jpg")}
                       message="Posted by someone else. Tap to view location sharing and shared person's details."
@@ -201,23 +204,22 @@ export default class TrainScreen extends Component {
               }
             })}
           </ScrollView>
-          <Icon
-            name="add"
-            reverse
-            raised
-            color="red"
-            containerStyle={{
-              position: "absolute",
-              marginTop: "150%",
-              paddingLeft: "75%"
-            }}
+          <TouchbleScale
+            style={styles.shareLocationTouchableScale}
             onPress={() =>
               this.props.navigation.navigate("ShareLocation", {
                 prevScreen: "TrainScreen"
               })
             }
-          />
-          <Icon
+          >
+            <View elevation={5}>
+              <Image
+                source={require("../../images/updated_logo.png")}
+                style={styles.shareLocationImage}
+              />
+            </View>
+          </TouchbleScale>
+          {/* <Icon
             name="search"
             reverse
             raised
@@ -228,7 +230,7 @@ export default class TrainScreen extends Component {
               paddingRight: "60%"
             }}
             onPress={this.toggleModal}
-          />
+          /> */}
         </View>
       );
     }

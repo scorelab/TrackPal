@@ -10,8 +10,7 @@ export default StyleSheet.create({
     width: "100%"
   },
   scrollView: {
-    width: "100%",
-    backgroundColor: "#e8e8e8"
+    width: "100%"
   },
   scrollViewContent: {
     alignItems: "center",
@@ -43,5 +42,24 @@ export default StyleSheet.create({
     color: "white",
     marginTop: 12,
     fontSize: 20
+  },
+  feedText: {
+    fontSize: 30,
+    marginRight: deviceWidth * 0.6,
+    padding: 10,
+    fontWeight: "bold",
+    color: "black"
+  },
+  shareLocationTouchableScale: {
+    position: "absolute",
+    marginTop: deviceWidth*1.57,
+    zIndex: 1
+  },
+  shareLocationImage:{
+    height: 70,
+    width: 70,
+    backgroundColor: "rgba(0,0,0,0.05)",
+    padding: 10,
+    borderRadius: 50
   }
 });
