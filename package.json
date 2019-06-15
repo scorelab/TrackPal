@@ -20,6 +20,8 @@
     "react-native-indicators": "^0.13.0",
     "react-native-maps": "^0.23.0",
     "react-native-modal": "^11.0.1",
+    "react-native-svg": "^9.5.1",
+    "react-native-svg-uri": "^1.2.3",
     "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.6.1"
   },
@@ -32,5 +34,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "resources/fonts"
+    ]
   }
 }
