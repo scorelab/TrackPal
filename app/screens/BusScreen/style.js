@@ -45,9 +45,21 @@ export default StyleSheet.create({
   },
   feedText: {
     fontSize: 30,
-    marginRight: deviceWidth*0.6,
+    marginRight: deviceWidth * 0.6,
     padding: 10,
     fontWeight: "bold",
     color: "black"
+  },
+  shareLocationTouchableScale: {
+    position: "absolute",
+    marginTop: deviceWidth*1.57,
+    zIndex: 1
+  },
+  shareLocationImage:{
+    height: 70,
+    width: 70,
+    backgroundColor: "rgba(0,0,0,0.05)",
+    padding: 10,
+    borderRadius: 50
   }
 });
