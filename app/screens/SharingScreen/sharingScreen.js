@@ -186,7 +186,6 @@ export default class MapScreen extends Component {
   _isArrievedToLocation() {
     const { to, current } = this.state;
     var distance = this.getDistanceFromLocations(current, to);
-    console.log(distance);
     if (distance < 20) {
       this.cancelSharing();
     }
