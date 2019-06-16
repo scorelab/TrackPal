@@ -9,14 +9,11 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
-import HeaderBar from "../../components/HeaderBar/headerBar.js";
 import ListItems from "../../components/ListComponent/listItemComponent.js";
 import styles from "./style.js";
-import { Icon } from "react-native-elements";
 import Modal from "react-native-modal";
 import SearchHeaderBar from "../../components/SearchHeaderbar/searchHeaderbar.js";
 import TouchbleScale from "react-native-touchable-scale";
-import SvgUri from "react-native-svg-uri";
 
 import { f, database } from "../../../config/config.js";
 
@@ -99,8 +96,8 @@ export default class BusScreen extends Component {
     if (this.state.indicator) {
       return (
         <View style={styles.container}>
-           <SearchHeaderBar />
-           <Text style={styles.feedText}>Your feed</Text>
+          <SearchHeaderBar />
+          <Text style={styles.feedText}>Your feed</Text>
           <ScrollView
             style={styles.scrollView}
             contentContainerStyle={styles.scrollViewContent}
