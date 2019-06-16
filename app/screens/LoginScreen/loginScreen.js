@@ -94,6 +94,8 @@ export default class LoginScreen extends Component {
               const { uid } = result;
               _this.createUser(uid, json, token, fbImage);
             });
+          }).then(() => {
+            _this.props.navigation.navigate("Onboard");
           })
           .catch(function(err) {
             console.log(err);
@@ -184,6 +186,9 @@ export default class LoginScreen extends Component {
 
               that.createGoogleUser(user.uid, newUser, user.photoURL);
             });
+        })
+        .then(() => {
+          that.props.navigation.navigate("Onboard");
         })
         .catch(error => {
           alert(error.code);
@@ -326,7 +331,7 @@ export default class LoginScreen extends Component {
                 </KeyboardAvoidingView>
               )}
 
-{this.state.social === false ? (
+              {this.state.social === false ? (
                 <View style={styles.container3}>
                   <TouchableOpacity
                     onPress={() => this.props.navigation.navigate("SignUp")}
