@@ -193,7 +193,7 @@ export default class SignUpScreen extends Component {
       .createUserWithEmailAndPassword(email, password)
       .then(function(data) {
         that.setState({ isRegistering: false });
-        that.props.navigation.navigate("App");
+        that.props.navigation.navigate("Onboard");
       })
       .catch(function(error) {
         var errorMessage = error.message;
