@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "533683482638",
+    "firebase_url": "https://trackpal-1fee0.firebaseio.com",
+    "project_id": "trackpal-1fee0",
+    "storage_bucket": "trackpal-1fee0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533683482638:android:d2177b5955199de4",
+        "android_client_info": {
+          "package_name": "com.trackpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533683482638-hd34qs7sdi63adf0sq4vjutloe7j9h55.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trackpal",
+            "certificate_hash": "dc8b963d827c409b2c8585eaa140534e7074a11f"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANfZWAONUsX1-kDr9uYWcyPtNZAk4EZ-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
