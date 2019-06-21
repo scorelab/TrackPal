@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#e8e8e8",
+      "flex": 1,
+      "justifyContent": "flex-start",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#00aced",
+        "flexDirection": "row",
+        "height": 55,
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "width": 375,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 18,
+          }
+        }
+      >
+        Profile
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#e8e8e8",
+            "flex": 1,
+            "justifyContent": "flex-start",
+            "width": "100%",
+          }
+        }
+      >
+        <ActivityIndicator
+          animating={true}
+          color="#0000ff"
+          hidesWhenStopped={true}
+          size="large"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
