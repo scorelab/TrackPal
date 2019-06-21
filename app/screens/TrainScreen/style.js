@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 let deviceWidth = Dimensions.get("window").width;
+let deveiceHeight = Dimensions.get("window").height;
 
 export default StyleSheet.create({
   container: {
@@ -52,7 +53,7 @@ export default StyleSheet.create({
   },
   shareLocationTouchableScale: {
     position: "absolute",
-    marginTop: deviceWidth*1.57,
+    marginTop: deveiceHeight*0.8,
     zIndex: 1
   },
   shareLocationImage:{

@@ -14,12 +14,12 @@ export default StyleSheet.create({
   },
 
   scrollStyle: {
-    flex: 1
+    flex: 1,
   },
   logoContainer: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: deveiceHeight / 5
+    marginTop: 150
   },
   logo: {
     width: 100,

@@ -223,6 +223,17 @@ export default class MapScreen extends Component {
       .catch(err => console.log("Can't share the location in Bus"));
   }
 
+  fitCoordinates = () => {
+    const { from, to } = this.state;
+
+    if (to !== null && from !== null) {
+      this.map.fitToCoordinates([from, to], {
+        edgePadding: { top: 100, right: 100, bottom: 100, left: 100 },
+        animated: true
+      });
+    }
+  };
+
   render() {
     const { uid, current, from, to } = this.state;
     return (
@@ -235,8 +246,12 @@ export default class MapScreen extends Component {
               region={current}
               loadingEnabled
               showsUserLocation
+              ref={ref => {
+                this.map = ref;
+              }}
             >
               <Marker coordinate={from} />
+              <Marker coordinate={current} />
               <Marker coordinate={to} />
             </MapView>
           ) : (

@@ -15,8 +15,6 @@ import HeaderBar from "../../components/HeaderBar/headerBar.js";
 
 import styles from "./styles";
 
-const DEFAULT_PADDING = { top: 60, right: 60, bottom: 60, left: 60 };
-
 export default class MapScreen extends Component {
   state = {
     region: null,
