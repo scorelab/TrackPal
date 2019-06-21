@@ -12,27 +12,26 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "flex-start",
-    marginTop: deveiceHeight * 0.25
+    marginTop: 200
   },
   container2: {
     flex: 0.5,
     alignItems: "center",
     justifyContent: "flex-start",
-    marginBottom: 30,
-    marginTop: deveiceHeight / 12
+    marginBottom: "7%",
+    marginTop: "20%"
   },
   container3: {
     flex: 0.5,
     alignItems: "center",
     justifyContent: "flex-start",
-    marginTop: 20
   },
   scrollStyle: {
     flex: 1
   },
   input: {
     height: 60,
-    width: deviceWidth * 0.8,
+    width: "100%",
     borderRadius: 50,
     backgroundColor: "rgba(0,0,0,0.2)",
     marginBottom: 15,
@@ -45,7 +44,7 @@ export default StyleSheet.create({
   containerNew: {
     alignItems: "center",
     justifyContent: "flex-start",
-    marginTop: deviceWidth * 0.25
+    marginTop: "30%"
   },
   loginTouchableOpacity: {
     alignItems: "center",
@@ -73,7 +72,7 @@ export default StyleSheet.create({
   logo: {
     width: "100%",
     height: 100,
-    marginTop: deveiceHeight * 0.13
+    marginTop: "30%"
   },
   privacyText: {
     color: "white"
