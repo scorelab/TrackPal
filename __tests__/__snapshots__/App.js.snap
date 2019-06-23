@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Authenticated Stack Navigator Test authenticatinng user is valid: snaphot 1 1`] = `
+Object {
+  "a": 5,
+}
+`;
+
+exports[`Authenticated Stack Navigator Test bottm tab navigation is valid: snapshot 2 1`] = `
+Object {
+  "a": 4,
+}
+`;
