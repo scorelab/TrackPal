@@ -1,0 +1,45 @@
+{
+  "name": "TrackPal",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "email-validator": "^2.0.4",
+    "firebase": "^5.9.3",
+    "geolib": "^2.0.24",
+    "react": "16.6.3",
+    "react-native": "0.58.6",
+    "react-native-elements": "^1.1.0",
+    "react-native-fbsdk": "^0.8.0",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-google-places-autocomplete": "^1.3.9",
+    "react-native-google-signin": "^2.0.0",
+    "react-native-indicators": "^0.13.0",
+    "react-native-maps": "^0.23.0",
+    "react-native-modal": "^11.0.1",
+    "react-native-onboarding-swiper": "^1.1.0",
+    "react-native-svg": "^9.5.1",
+    "react-native-svg-uri": "^1.2.3",
+    "react-native-touchable-scale": "^2.0.0",
+    "react-native-vector-icons": "^6.4.2",
+    "react-navigation": "^3.6.1"
+  },
+  "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "24.7.1",
+    "jest": "24.7.1",
+    "metro-react-native-babel-preset": "0.53.1",
+    "react-test-renderer": "16.6.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "resources/fonts"
+    ]
+  }
+}
