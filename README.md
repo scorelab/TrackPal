@@ -1,7 +1,6 @@
 # TrackPal - Go-social Community App
-
 <img src="https://i.imgur.com/g02h7HP.png" width="75">
----
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4fb5295fe71a4a589277065334f88a59)](https://www.codacy.com/app/shehand/TrackPal?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=scorelab/TrackPal&amp;utm_campaign=Badge_Grade)   [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## About
