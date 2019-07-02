@@ -207,7 +207,7 @@ export default class BusScreen extends Component {
               }
             })}
           </ScrollView>
-          <TouchbleScale
+          {/* <TouchbleScale
             style={styles.shareLocationTouchableScale}
             onPress={() =>
               this.props.navigation.navigate("ShareLocation", {
@@ -221,7 +221,7 @@ export default class BusScreen extends Component {
                 style={styles.shareLocationImage}
               />
             </View>
-          </TouchbleScale>
+          </TouchbleScale> */}
           {/* <Icon
             name="search"
             reverse
