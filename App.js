@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, ActivityIndicator } from "react-native";
+import { StyleSheet, View, ActivityIndicator, Image } from "react-native";
 import {
   createBottomTabNavigator,
   createAppContainer,
@@ -20,12 +20,13 @@ import SharingScreen from "./app/screens/SharingScreen/sharingScreen.js";
 import LandingScreen from "./app/screens/LandingScreen/landingScreen.js";
 import SignUpScreen from "./app/screens/SignUpScreen/signUpScreen.js";
 import ResetPasswordScreen from "./app/screens/ResetPasswordScreen/resetPasswordScreen.js";
-import OnboardScreen from "./app/screens/Onboarding/onboardingScreen.js"
+import OnboardScreen from "./app/screens/Onboarding/onboardingScreen.js";
 
 // bottom tab navigator to authed users
 const ScreenStack = createBottomTabNavigator(
   {
     Bus: { screen: BusScreen },
+    Map: { screen: MapScreen },
     Train: { screen: TrainScreen }
   },
   {
@@ -35,6 +36,23 @@ const ScreenStack = createBottomTabNavigator(
         let iconName;
         if (routeName === "Bus") {
           iconName = "bus";
+        } else if (routeName === "Map") {
+          return (
+            <View style={{marginBottom: 50}}>
+              <Image
+                source={require("./app/images/updated_logo.png")}
+                style={{
+                  height: 70,
+                  width: 70,
+                  backgroundColor: "rgba(0,0,0,0.05)",
+                  padding: 10,
+                  borderRadius: 50,
+                  borderColor: "rgba(0,0,0,0.09)",
+                  borderWidth: 2
+                }}
+              />
+            </View>
+          );
         } else if (routeName === "Train") {
           iconName = "train_";
         }
@@ -79,7 +97,7 @@ const AuthStack = createStackNavigator(
     ResetPassword: {
       screen: ResetPasswordScreen
     },
-    Onboard:{
+    Onboard: {
       screen: OnboardScreen
     }
   },
