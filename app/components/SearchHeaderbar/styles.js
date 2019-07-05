@@ -39,7 +39,8 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
     borderColor: "rgba(0,0,0,0.1)",
     borderWidth: 1,
-    marginLeft: 20
+    marginLeft: 20,
+    marginRight: 10
   },
   profileImage: {
     width: 50,
