@@ -9,7 +9,13 @@ export default class SearchHeaderBar extends Component {
     super(props);
   }
   state = {
-    searchEnabled: false
+    searchEnabled: false,
+    filterText: ""
+  };
+
+  getFilterText = () => {
+    this.setState({ searchEnabled: false });
+    this.props.getValueFromHeaderSearch;
   };
 
   render() {
@@ -26,17 +32,23 @@ export default class SearchHeaderBar extends Component {
               />
               <TextInput
                 placeholder="Search"
-                placeholderTextColor="white"
+                placeholderTextColor="black"
                 style={styles.input}
-                onChangeText={text => this.setState({ filterKey: text })}
+                onChangeText={this.props.getValueFromHeaderSearch}
+              />
+              <Icon
+                name="search"
+                type="Ionicons"
+                color="black"
+                onPress={this.props.search}
               />
             </View>
           ) : (
             <View style={styles.titleArea}>
-               <Image
-                  style={styles.profileImage}
-                  source={require("../../images/user_image_1.jpg")}
-                />
+              <Image
+                style={styles.profileImage}
+                source={require("../../images/user_image_1.jpg")}
+              />
               <View style={{ marginLeft: 220 }}>
                 <CustomIcon
                   name="search"
