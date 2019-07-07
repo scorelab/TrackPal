@@ -109,7 +109,7 @@ const AuthStack = createStackNavigator(
 
 const SwitchNav = createSwitchNavigator({
   Login: {
-    screen: LoginScreen
+    screen: OnboardScreen
   },
   Dashboard: AuthStack
 });
