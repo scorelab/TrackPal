@@ -12,6 +12,7 @@
     "geolib": "^2.0.24",
     "react": "16.6.3",
     "react-native": "0.58.6",
+    "react-native-app-intro-slider": "^3.0.0",
     "react-native-elements": "^1.1.0",
     "react-native-fbsdk": "^0.8.0",
     "react-native-gesture-handler": "^1.1.0",

@@ -7,7 +7,6 @@ import {
   createSwitchNavigator
 } from "react-navigation";
 
-import Ionicons from "react-native-vector-icons/FontAwesome5";
 import CustomIcon from "./resources/customIcon.js";
 
 // importing screens
@@ -109,7 +108,7 @@ const AuthStack = createStackNavigator(
 
 const SwitchNav = createSwitchNavigator({
   Login: {
-    screen: OnboardScreen
+    screen: LoginScreen
   },
   Dashboard: AuthStack
 });
