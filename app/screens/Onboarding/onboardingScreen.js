@@ -8,8 +8,11 @@ export default class OnboardingScreen extends Component {
     return (
       <View style={styles.container}>
         <Onboarding
-          onSkip={() => this.props.navigation.navigate("App")}
           onDone={() => this.props.navigation.navigate("App")}
+          showSkip={false}
+          showDone={true}
+          bottomBarHeight={20}
+          bottomBarHighlight={false}
           pages={[
             {
               backgroundColor: "#fff",
