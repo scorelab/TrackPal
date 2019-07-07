@@ -12,7 +12,6 @@ import {
 } from "react-native";
 import { SocialIcon } from "react-native-elements";
 import styles from "./style.js";
-import { WaveIndicator } from "react-native-indicators";
 import * as EmailValidator from "email-validator";
 import { f, webClinetID } from "../../../config/config.js";
 import {
@@ -94,7 +93,8 @@ export default class LoginScreen extends Component {
               const { uid } = result;
               _this.createUser(uid, json, token, fbImage);
             });
-          }).then(() => {
+          })
+          .then(() => {
             _this.props.navigation.navigate("Onboard");
           })
           .catch(function(err) {
