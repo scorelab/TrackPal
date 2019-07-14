@@ -11,7 +11,8 @@ export default StyleSheet.create({
     position: "absolute", // child
     bottom: "30%", // position where you want
     left: 50,
-    fontStyle: "italic"
+    fontStyle: "italic",
+    fontFamily: "Product Sans"
   },
   textStyle_2: {
     fontWeight: "bold",
@@ -20,7 +21,8 @@ export default StyleSheet.create({
     position: "absolute", // child
     bottom: "25%", // position where you want
     left: 50,
-    fontStyle: "italic"
+    fontStyle: "italic",
+    fontFamily: "Product Sans"
   },
   textStyle_3: {
     fontWeight: "bold",
@@ -29,7 +31,8 @@ export default StyleSheet.create({
     position: "absolute", // child
     bottom: "20%", // position where you want
     left: 50,
-    fontStyle: "italic"
+    fontStyle: "italic",
+    fontFamily: "Product Sans"
   },
   imageBackground: {
     height: "100%",
