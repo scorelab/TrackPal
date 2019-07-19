@@ -1,0 +1,566 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "backgroundColor": "#fff",
+            "image": <View
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <ImageBackground
+                source={
+                  Object {
+                    "testUri": "../../../app/images/bg-img-onboarding-1.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "100%",
+                    "position": "relative",
+                    "width": "100%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "bottom": "30%",
+                      "color": "white",
+                      "fontFamily": "Product Sans",
+                      "fontSize": 42,
+                      "fontStyle": "italic",
+                      "fontWeight": "bold",
+                      "left": 50,
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  Get to know
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "bottom": "25%",
+                      "color": "white",
+                      "fontFamily": "Product Sans",
+                      "fontSize": 42,
+                      "fontStyle": "italic",
+                      "fontWeight": "bold",
+                      "left": 50,
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  before you
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "bottom": "20%",
+                      "color": "white",
+                      "fontFamily": "Product Sans",
+                      "fontSize": 42,
+                      "fontStyle": "italic",
+                      "fontWeight": "bold",
+                      "left": 50,
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  Go
+                </Text>
+              </ImageBackground>
+            </View>,
+          },
+          Object {
+            "backgroundColor": "#fff",
+            "image": <View
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <ImageBackground
+                source={
+                  Object {
+                    "testUri": "../../../app/images/bg-img-onboarding-2.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "100%",
+                    "position": "relative",
+                    "width": "100%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "bottom": "30%",
+                      "color": "white",
+                      "fontFamily": "Product Sans",
+                      "fontSize": 42,
+                      "fontStyle": "italic",
+                      "fontWeight": "bold",
+                      "left": 50,
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  Never Miss
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "bottom": "25%",
+                      "color": "white",
+                      "fontFamily": "Product Sans",
+                      "fontSize": 42,
+                      "fontStyle": "italic",
+                      "fontWeight": "bold",
+                      "left": 50,
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  your commute
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "bottom": "20%",
+                      "color": "white",
+                      "fontFamily": "Product Sans",
+                      "fontSize": 42,
+                      "fontStyle": "italic",
+                      "fontWeight": "bold",
+                      "left": 50,
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  Again
+                </Text>
+              </ImageBackground>
+            </View>,
+          },
+          Object {
+            "backgroundColor": "#fff",
+            "image": <View
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <ImageBackground
+                source={
+                  Object {
+                    "testUri": "../../../app/images/bg-img-onboarding-3.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": "100%",
+                    "position": "relative",
+                    "width": "100%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "bottom": "30%",
+                      "color": "white",
+                      "fontFamily": "Product Sans",
+                      "fontSize": 42,
+                      "fontStyle": "italic",
+                      "fontWeight": "bold",
+                      "left": 50,
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  Track Realtime
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "bottom": "25%",
+                      "color": "white",
+                      "fontFamily": "Product Sans",
+                      "fontSize": 42,
+                      "fontStyle": "italic",
+                      "fontWeight": "bold",
+                      "left": 50,
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  where your
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "bottom": "20%",
+                      "color": "white",
+                      "fontFamily": "Product Sans",
+                      "fontSize": 42,
+                      "fontStyle": "italic",
+                      "fontWeight": "bold",
+                      "left": 50,
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  commute is
+                </Text>
+              </ImageBackground>
+            </View>,
+          },
+        ]
+      }
+      disableVirtualization={false}
+      extraData={null}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={true}
+      initialNumToRender={1}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      onViewableItemsChanged={[Function]}
+      pagingEnabled={true}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsHorizontalScrollIndicator={false}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfig={
+        Object {
+          "itemVisiblePercentThreshold": 100,
+        }
+      }
+      viewabilityConfigCallbackPairs={
+        Array [
+          Object {
+            "onViewableItemsChanged": [Function],
+            "viewabilityConfig": Object {
+              "itemVisiblePercentThreshold": 100,
+            },
+          },
+        ]
+      }
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "paddingTop": 0,
+                },
+                null,
+                Object {
+                  "height": 1334,
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flex": 0,
+                    "paddingBottom": 60,
+                    "width": "100%",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": "100%",
+                    "width": "100%",
+                  }
+                }
+              >
+                <View
+                  accessibilityIgnoresInvertColors={true}
+                  style={
+                    Object {
+                      "height": "100%",
+                      "position": "relative",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../app/images/bg-img-onboarding-1.png",
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "position": "absolute",
+                          "right": 0,
+                          "top": 0,
+                        },
+                        Object {
+                          "height": "100%",
+                          "width": "100%",
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Text
+                    style={
+                      Object {
+                        "bottom": "30%",
+                        "color": "white",
+                        "fontFamily": "Product Sans",
+                        "fontSize": 42,
+                        "fontStyle": "italic",
+                        "fontWeight": "bold",
+                        "left": 50,
+                        "position": "absolute",
+                      }
+                    }
+                  >
+                    Get to know
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "bottom": "25%",
+                        "color": "white",
+                        "fontFamily": "Product Sans",
+                        "fontSize": 42,
+                        "fontStyle": "italic",
+                        "fontWeight": "bold",
+                        "left": 50,
+                        "position": "absolute",
+                      }
+                    }
+                  >
+                    before you
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "bottom": "20%",
+                        "color": "white",
+                        "fontFamily": "Product Sans",
+                        "fontSize": 42,
+                        "fontStyle": "italic",
+                        "fontWeight": "bold",
+                        "left": 50,
+                        "position": "absolute",
+                      }
+                    }
+                  >
+                    Go
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 0,
+            }
+          }
+        />
+      </View>
+    </RCTScrollView>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "height": 20,
+            "justifyContent": "space-between",
+            "paddingHorizontal": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flexShrink": 1,
+              "width": 200,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 0,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "rgba(0, 0, 0, 0.8)",
+                "borderRadius": 3,
+                "height": 6,
+                "marginHorizontal": 3,
+                "width": 6,
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "backgroundColor": "rgba(0, 0, 0, 0.3)",
+                "borderRadius": 3,
+                "height": 6,
+                "marginHorizontal": 3,
+                "width": 6,
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "backgroundColor": "rgba(0, 0, 0, 0.3)",
+                "borderRadius": 3,
+                "height": 6,
+                "marginHorizontal": 3,
+                "width": 6,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "flexShrink": 1,
+              "width": 200,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 0,
+                "marginRight": 10,
+                "paddingHorizontal": 10,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              hitSlop={
+                Object {
+                  "bottom": 15,
+                  "left": 15,
+                  "right": 15,
+                  "top": 15,
+                }
+              }
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "flex": 0,
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={true}
+                style={
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.8)",
+                    "fontSize": 16,
+                  }
+                }
+              >
+                Next
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+</View>
+`;

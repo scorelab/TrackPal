@@ -16,10 +16,11 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "#00aced",
+        "backgroundColor": "white",
         "flexDirection": "row",
         "height": 55,
         "justifyContent": "center",
+        "marginTop": 5,
         "width": "100%",
       }
     }
@@ -28,22 +29,119 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "width": 375,
+          "flexDirection": "row",
+          "width": 675,
         }
       }
     >
-      <Text
+      <View
         style={
           Object {
-            "color": "white",
-            "fontSize": 18,
+            "alignItems": "center",
+            "flexDirection": "row",
+            "width": 675,
           }
         }
       >
-        Track Your Bus
-      </Text>
+        <Image
+          source={
+            Object {
+              "testUri": "../../../app/images/user_image_1.jpg",
+            }
+          }
+          style={
+            Object {
+              "borderColor": "blue",
+              "borderRadius": 50,
+              "borderWidth": 2,
+              "height": 50,
+              "marginLeft": 10,
+              "width": 50,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "marginLeft": 220,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            onPress={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontSize": 20,
+                },
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0.1115)",
+                  "borderRadius": 50,
+                  "padding": 10,
+                },
+                Object {
+                  "fontFamily": "fontello",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "marginLeft": 15,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            onPress={[Function]}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontSize": 20,
+                },
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0.1115)",
+                  "borderRadius": 50,
+                  "padding": 10,
+                },
+                Object {
+                  "fontFamily": "fontello",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
     </View>
   </View>
+  <Text
+    style={
+      Object {
+        "color": "black",
+        "fontSize": 30,
+        "fontWeight": "bold",
+        "marginRight": 450,
+        "padding": 10,
+      }
+    }
+  >
+    Your feed
+  </Text>
   <RCTScrollView
     contentContainerStyle={
       Object {
@@ -54,7 +152,6 @@ exports[`renders correctly 1`] = `
     showsVerticalScrollIndicator={false}
     style={
       Object {
-        "backgroundColor": "#e8e8e8",
         "width": "100%",
       }
     }
@@ -83,67 +180,5 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTScrollView>
-  <View
-    style={
-      Object {
-        "marginTop": "150%",
-        "paddingLeft": "75%",
-        "position": "absolute",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "red",
-          "borderRadius": 28,
-          "height": 52,
-          "justifyContent": "center",
-          "margin": 7,
-          "shadowColor": "rgba(0,0,0, .4)",
-          "shadowOffset": Object {
-            "height": 1,
-            "width": 1,
-          },
-          "shadowOpacity": 1,
-          "shadowRadius": 1,
-          "width": 52,
-        }
-      }
-    >
-      <Text
-        allowFontScaling={false}
-        style={
-          Array [
-            Object {
-              "color": "white",
-              "fontSize": 24,
-            },
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "fontFamily": "Material Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-        testID="iconIcon"
-      >
-        
-      </Text>
-    </View>
-  </View>
 </View>
 `;
