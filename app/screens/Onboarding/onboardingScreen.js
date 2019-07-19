@@ -48,28 +48,11 @@ export default class OnboardingScreen extends Component {
                     source={require("../../images/bg-img-onboarding-2.png")}
                   >
                     <Image
-                      style={{ marginTop: "60.5%", left: 75, zIndex: 1000 }}
+                      style={styles.etaImage}
                       source={require("../../images/time.png")}
                     />
-                    <View
-                      style={{
-                        position: "absolute", // child
-                        bottom: "60%", // position where you want
-                        left: 70
-                      }}
-                    >
-                      <Text
-                        style={{
-                          fontSize: 16,
-                          color: "black",
-                          paddingLeft: 50,
-                          fontFamily: "Product Sans",
-                          borderRadius: 50,
-                          backgroundColor: "white",
-                          width: 300,
-                          padding: 10
-                        }}
-                      >
+                    <View style={styles.etaMessageView}>
+                      <Text style={styles.etaMessage}>
                         Your Train : සෙන්කඩගල මැණිකේ {"\n"} ETA 12 min
                       </Text>
                     </View>

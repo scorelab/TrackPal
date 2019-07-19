@@ -38,5 +38,25 @@ export default StyleSheet.create({
     height: "100%",
     width: "100%",
     position: "relative"
+  },
+  popMessage: {
+    fontSize: 16,
+    color: "black",
+    paddingLeft: 50,
+    fontFamily: "Product Sans",
+    borderRadius: 50,
+    backgroundColor: "white",
+    width: 300,
+    padding: 10
+  },
+  popMessageIcon: {
+    marginTop: "78.5%",
+    left: 75,
+    zIndex: 1000
+  },
+  popMessageView: {
+    position: "absolute", // child
+    bottom: "50%", // position where you want
+    left: 70
   }
 });
