@@ -58,5 +58,21 @@ export default StyleSheet.create({
     position: "absolute", // child
     bottom: "50%", // position where you want
     left: 70
-  }
+  },
+  etaMessage: {
+    fontSize: 16,
+    color: "black",
+    paddingLeft: 50,
+    fontFamily: "Product Sans",
+    borderRadius: 50,
+    backgroundColor: "white",
+    width: 300,
+    padding: 10
+  },
+  etaMessageView: {
+    position: "absolute", // child
+    bottom: "60%", // position where you want
+    left: 70
+  },
+  etaImage: { marginTop: "60.5%", left: 75, zIndex: 1000 }
 });
