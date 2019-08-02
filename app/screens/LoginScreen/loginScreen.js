@@ -37,7 +37,6 @@ export default class LoginScreen extends Component {
 
   componentDidMount() {
     GoogleSignin.configure({
-      scopes: ["https://www.googleapis.com/auth/drive.readonly"],
       webClientId: webClinetID,
       offlineAccess: true
     });
