@@ -172,7 +172,7 @@ export default class TrainScreen extends Component {
   }
 }
 
-// method to conver the json object to js array
+// method to convert the json object to js array
 function snapshotToArray(snapshot) {
   var returnArr = [];
 
