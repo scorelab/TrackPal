@@ -35,67 +35,11 @@ export default class SignUpScreen extends Component {
     });
   }
 
+  // method to redirect user to the application feed
   redirectUser() {
     const { navigate } = this.props.navigation;
     navigate("App");
   }
-
-  onPressLogin() {
-    LoginManager.logInWithReadPermissions(["public_profile", "email"]).then(
-      result => this._handleCallBack(result),
-      function(error) {
-        alert("Login fail with error: " + error);
-      }
-    );
-  }
-
-  _handleCallBack(result) {
-    let _this = this;
-    if (result.isCancelled) {
-      alert("Login cancelled");
-    } else {
-      AccessToken.getCurrentAccessToken().then(data => {
-        const token = data.accessToken;
-        fetch(
-          "https://graph.facebook.com/v2.8/me?fields=id,first_name,last_name,gender,birthday&access_token=" +
-            token
-        )
-          .then(response => response.json())
-          .then(json => {
-            const imageSize = 120;
-            const facebookID = json.id;
-            const fbImage = `https://graph.facebook.com/${facebookID}/picture?height=${imageSize}`;
-            this.authenticate(data.accessToken).then(function(result) {
-              const { uid } = result;
-              _this.createUser(uid, json, token, fbImage);
-            });
-          })
-          .catch(function(err) {
-            console.log(err);
-          });
-      });
-    }
-  }
-
-  authenticate = token => {
-    const provider = auth.FacebookAuthProvider;
-    const credential = provider.credential(token);
-    let ret = f.auth().signInWithCredential(credential);
-    return ret;
-  };
-
-  createUser = (uid, userData, token, dp) => {
-    const defaults = {
-      uid,
-      token,
-      dp,
-      ageRange: [20, 30]
-    };
-    f.database()
-      .ref("users")
-      .child(uid)
-      .update({ ...userData, ...defaults });
-  };
 
   render() {
     return (
@@ -182,14 +126,15 @@ export default class SignUpScreen extends Component {
     this.setState({ isRegistering: true });
 
     const tempUser = {
-      first_name: "Registered",
-      last_name: "User",
-      birthday: "01/01/2001"
+      first_name: "Annonymous",
+      last_name: "Unverified Email",
+      birthday: "01/01/1999"
     };
 
     f.auth()
       .createUserWithEmailAndPassword(email, password)
       .then(function(data) {
+        that.createUser(data.user.uid, tempUser)
         that.setState({ isRegistering: false });
         that.props.navigation.navigate("Onboard");
       })
