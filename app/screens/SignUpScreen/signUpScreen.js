@@ -12,9 +12,7 @@ import {
 import styles from "./style";
 import * as EmailValidator from "email-validator";
 import { AccessToken, LoginManager } from "react-native-fbsdk";
-import { WaveIndicator } from "react-native-indicators";
 import { f, auth } from "../../../config/config.js";
-import { SocialIcon } from "react-native-elements";
 
 export default class SignUpScreen extends Component {
   constructor(props) {
