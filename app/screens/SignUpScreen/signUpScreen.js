@@ -41,6 +41,7 @@ export default class SignUpScreen extends Component {
     navigate("App");
   }
 
+  // method to view the sign in view
   render() {
     return (
       <ImageBackground
@@ -118,6 +119,7 @@ export default class SignUpScreen extends Component {
     );
   }
 
+  // method to register the user with email and password
   register() {
     var that = this;
     let email = this.state.email;
@@ -146,6 +148,7 @@ export default class SignUpScreen extends Component {
       });
   }
 
+  // method to validate the user's email and password
   signUpAsync = async () => {
     if (EmailValidator.validate(this.state.email) === true) {
       if (this.state.Password === this.state.ConfirmPassword) {
@@ -158,6 +161,7 @@ export default class SignUpScreen extends Component {
     }
   };
 
+  // method to create a user document in the user collection
   createUser = (uid, userData) => {
     const defaults = {
       uid,

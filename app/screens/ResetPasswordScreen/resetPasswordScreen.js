@@ -21,6 +21,8 @@ export default class ResetPasswordScreen extends Component {
       email: ""
     };
   }
+
+  // method to render the view
   render() {
     return (
       <ImageBackground
@@ -64,6 +66,7 @@ export default class ResetPasswordScreen extends Component {
     );
   }
 
+  // method to reset the password
   resetPassword = () => {
     if (EmailValidator.validate(this.state.email) === true) {
       var that = this;
