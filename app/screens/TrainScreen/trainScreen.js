@@ -36,6 +36,7 @@ export default class TrainScreen extends Component {
     }
   }
 
+  // method to redirect user for sharing screen
   redirectUserToSharingScreen(objectKey) {
     var currentUser = f.auth().currentUser;
 
@@ -50,6 +51,7 @@ export default class TrainScreen extends Component {
     }
   }
 
+  // method to search the list by the destination
   searchByTheDestination() {
     var destination = this.state.filterKey;
 
@@ -80,10 +82,12 @@ export default class TrainScreen extends Component {
     }
   }
 
+  // method to get the typing text in the search bar
   getValueFromHeaderSearch = text => {
     this.setState({ filterKey: text });
   };
 
+  // render method for viewing
   render() {
     const { currentUserID } = this.state;
     if (this.state.indicator) {
@@ -172,7 +176,7 @@ export default class TrainScreen extends Component {
   }
 }
 
-// method to conver the json object to js array
+// method to convert the json object to js array
 function snapshotToArray(snapshot) {
   var returnArr = [];
 

@@ -37,7 +37,6 @@ export default class LoginScreen extends Component {
 
   componentDidMount() {
     GoogleSignin.configure({
-      scopes: ["https://www.googleapis.com/auth/drive.readonly"],
       webClientId: webClinetID,
       offlineAccess: true
     });
@@ -59,6 +58,7 @@ export default class LoginScreen extends Component {
     });
   }
 
+  // facebook sign in invoking method
   onPressLogin() {
     this.setState({ showSpinner: true });
     LoginManager.logInWithReadPermissions([
@@ -72,6 +72,7 @@ export default class LoginScreen extends Component {
     });
   }
 
+  // method to handle facebook sign in process with authentiaction and redirecting process
   _handleCallBack(result) {
     let _this = this;
     if (result.isCancelled) {
@@ -104,6 +105,7 @@ export default class LoginScreen extends Component {
     }
   }
 
+  // method to authenticate the facebook sign in user with credentials
   authenticate = token => {
     const provider = f.auth.FacebookAuthProvider;
     const credential = provider.credential(token);
@@ -111,6 +113,7 @@ export default class LoginScreen extends Component {
     return ret;
   };
 
+  // method to create facebook sign in user in the user collection in the firebase
   createUser = (uid, userData, token, dp) => {
     const defaults = {
       uid,
@@ -127,7 +130,6 @@ export default class LoginScreen extends Component {
   };
 
   // methods to log with usename and password
-
   login() {
     var that = this;
     let email = this.state.email;
@@ -150,6 +152,7 @@ export default class LoginScreen extends Component {
       });
   }
 
+  // method to validate the user email and password
   _signInAsync = async () => {
     if (EmailValidator.validate(this.state.email) === true) {
       if (this.state.Pasword != "") {
@@ -162,8 +165,7 @@ export default class LoginScreen extends Component {
     }
   };
 
-  // google sign in
-
+  // google sign in method
   _googleSignIn = async () => {
     this.setState({ showSpinner: true });
     var that = this;
@@ -211,6 +213,7 @@ export default class LoginScreen extends Component {
     }
   };
 
+  // method to create a google sign in user document in the firebase user collection
   createGoogleUser = (uid, userData, dp) => {
     const defaults = {
       uid,
@@ -225,6 +228,7 @@ export default class LoginScreen extends Component {
       .update({ ...userData, ...defaults });
   };
 
+  // method for viewing
   render() {
     const { isLogging, showSpinner } = this.state;
 

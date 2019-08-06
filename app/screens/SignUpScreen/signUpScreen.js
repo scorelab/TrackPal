@@ -12,9 +12,7 @@ import {
 import styles from "./style";
 import * as EmailValidator from "email-validator";
 import { AccessToken, LoginManager } from "react-native-fbsdk";
-import { WaveIndicator } from "react-native-indicators";
 import { f, auth } from "../../../config/config.js";
-import { SocialIcon } from "react-native-elements";
 
 export default class SignUpScreen extends Component {
   constructor(props) {
@@ -37,68 +35,13 @@ export default class SignUpScreen extends Component {
     });
   }
 
+  // method to redirect user to the application feed
   redirectUser() {
     const { navigate } = this.props.navigation;
     navigate("App");
   }
 
-  onPressLogin() {
-    LoginManager.logInWithReadPermissions(["public_profile", "email"]).then(
-      result => this._handleCallBack(result),
-      function(error) {
-        alert("Login fail with error: " + error);
-      }
-    );
-  }
-
-  _handleCallBack(result) {
-    let _this = this;
-    if (result.isCancelled) {
-      alert("Login cancelled");
-    } else {
-      AccessToken.getCurrentAccessToken().then(data => {
-        const token = data.accessToken;
-        fetch(
-          "https://graph.facebook.com/v2.8/me?fields=id,first_name,last_name,gender,birthday&access_token=" +
-            token
-        )
-          .then(response => response.json())
-          .then(json => {
-            const imageSize = 120;
-            const facebookID = json.id;
-            const fbImage = `https://graph.facebook.com/${facebookID}/picture?height=${imageSize}`;
-            this.authenticate(data.accessToken).then(function(result) {
-              const { uid } = result;
-              _this.createUser(uid, json, token, fbImage);
-            });
-          })
-          .catch(function(err) {
-            console.log(err);
-          });
-      });
-    }
-  }
-
-  authenticate = token => {
-    const provider = auth.FacebookAuthProvider;
-    const credential = provider.credential(token);
-    let ret = f.auth().signInWithCredential(credential);
-    return ret;
-  };
-
-  createUser = (uid, userData, token, dp) => {
-    const defaults = {
-      uid,
-      token,
-      dp,
-      ageRange: [20, 30]
-    };
-    f.database()
-      .ref("users")
-      .child(uid)
-      .update({ ...userData, ...defaults });
-  };
-
+  // method to view the sign in view
   render() {
     return (
       <ImageBackground
@@ -176,6 +119,7 @@ export default class SignUpScreen extends Component {
     );
   }
 
+  // method to register the user with email and password
   register() {
     var that = this;
     let email = this.state.email;
@@ -184,14 +128,15 @@ export default class SignUpScreen extends Component {
     this.setState({ isRegistering: true });
 
     const tempUser = {
-      first_name: "Registered",
-      last_name: "User",
-      birthday: "01/01/2001"
+      first_name: "Annonymous",
+      last_name: "Unverified Email",
+      birthday: "01/01/1999"
     };
 
     f.auth()
       .createUserWithEmailAndPassword(email, password)
       .then(function(data) {
+        that.createUser(data.user.uid, tempUser)
         that.setState({ isRegistering: false });
         that.props.navigation.navigate("Onboard");
       })
@@ -203,6 +148,7 @@ export default class SignUpScreen extends Component {
       });
   }
 
+  // method to validate the user's email and password
   signUpAsync = async () => {
     if (EmailValidator.validate(this.state.email) === true) {
       if (this.state.Password === this.state.ConfirmPassword) {
@@ -215,6 +161,7 @@ export default class SignUpScreen extends Component {
     }
   };
 
+  // method to create a user document in the user collection
   createUser = (uid, userData) => {
     const defaults = {
       uid,

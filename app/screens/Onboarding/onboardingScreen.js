@@ -4,6 +4,8 @@ import Onboarding from "react-native-onboarding-swiper";
 import styles from "./styles.js";
 
 export default class OnboardingScreen extends Component {
+
+  // render method to render the onboarding screens
   render() {
     return (
       <View style={styles.container}>

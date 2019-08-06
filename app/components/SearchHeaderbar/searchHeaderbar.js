@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextInput, View, Image, Text } from "react-native";
+import { TextInput, View, Image, Alert } from "react-native";
 import styles from "./styles.js";
 import { Icon } from "react-native-elements";
 import CustomIcon from "../../../resources/customIcon.js";
@@ -64,7 +64,15 @@ export default class SearchHeaderBar extends Component {
                   color="black"
                   style={styles.customIcon}
                   size={20}
-                  onPress={() => this.setState({ searchEnabled: true })}
+                  onPress={() => Alert.alert(
+                    "Important",
+                    "This feature isn't implemented yet. Stay connected for future updates.",
+                    [
+                      {text: "OK"},
+                      {text: "Cancel"}
+                    ],
+                    {cancelable: false}
+                  )}
                 />
               </View>
             </View>
