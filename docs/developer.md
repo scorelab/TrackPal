@@ -6,7 +6,7 @@ As a developer you can suggest any improvements for the app. Please follow the i
 
 ### Install React-Native
 
-We are using reat-native-cli. So make sure to install react-native-cli rather than intalling react-native-expo. Before installing react-native make sure to intall the pre-requirements.
+We are using reat-native-cli. So make sure to install react-native-cli rather than installing react-native-expo. Before installing react-native make sure to install the pre-requirements.
 * Node
 * Python
 * JDK
@@ -22,7 +22,7 @@ You can find a complete tutorial in the given below link.
 
 We are using firebase as the backend(BaaS). So the developer himself needs to configure his own firebase. Create a firebase project as your own and use it's credentials for the application. You can find how to create a firebase project and find the credentials in the below link.
 
-#### [Firebase Intergration](http://console.firebase.google.com)
+#### [Firebase Integration](http://console.firebase.google.com)
 
 Copy your credentials and paste the content in the following file.
 
@@ -46,7 +46,7 @@ Rename the file name as **`config.js`** otherwise it won't work.
 
 ### Google Map Configuration
 
-The default map for the application is google map. To config the map with the application you should have GCP(Google Cloud Platform) account. To obtain a **`google map api key`** follow the given link. You can restrict permissions for api methods. It's ok if you don't want to restrict the api key as the application only needs location and searching api methods.
+The default map for the application is google map. To config the map with the application you should have GCP(Google Cloud Platform) account. To obtain a **`google map api key`** follow the given link. You can restrict permissions for api methods. It's OK if you don't want to restrict the api key as the application only needs location and searching api methods.
 
 #### [Obtain Map Api Key](https://cloud.google.com/maps-platform/)
 
@@ -62,7 +62,7 @@ Once you get the map api key, copy it and paste in the following files. Make sur
 
 ### Google Sign In Configuration / Facebook Sign In Configuration
 
-Note that this part is **not necessary** to follow. If the developer is not intersted in fully working app, you can continue without this part. But some part of the application won't work.
+Note that this part is **not necessary** to follow. If the developer is not interested in fully working app, you can continue without this part. But some part of the application won't work.
 
 #### Google
 This is a complex task. Make sure to follow the given link with correct steps otherwise you will end up with a mess.
@@ -79,7 +79,7 @@ Follow the link to get the facebook-app id. You should have a facebook account t
 
 #### [Obtain Facebook App Id](https://developers.facebook.com/)
 
-Once you have the facebook app id, copy it and paste it in the following locayion
+Once you have the facebook app id, copy it and paste it in the following location
 
 * **`/android/app/src/main/res/values/strings.xml`**
      `<string name="facebook_app_id">your app id</string>`
