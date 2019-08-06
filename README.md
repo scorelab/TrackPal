@@ -12,6 +12,8 @@ TrackPal is a public based mobile application that will be implemented using rea
 
 ## How to Run
 
+**Note : This document currently only supports for Android. iOS document will be available soon after the iOS build.**
+
 *1. Fork the original repository and use your own branch for your developments. To contribute for the original project, use master branch.*
 
     `git clone https://github.com/scorelab/TrackPal.git`
