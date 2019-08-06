@@ -11,6 +11,7 @@ We are using reat-native-cli. So make sure to install react-native-cli rather th
 * Python
 * JDK
 * Android Studio
+
     * Android SDK
     * Android SDK Platform
     * (Optional) Android Virtual Device
