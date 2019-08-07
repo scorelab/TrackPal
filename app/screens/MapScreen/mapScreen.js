@@ -4,7 +4,6 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
-  KeyboardAvoidingView
 } from "react-native";
 import { f, database } from "../../../config/config.js";
 
