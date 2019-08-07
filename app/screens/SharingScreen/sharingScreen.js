@@ -7,12 +7,11 @@ import {
   Image
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
-import HeaderBar from "../../components/HeaderBar/headerBar.js";
-import { Rating, Card, Button } from "react-native-elements";
 import geolib from "geolib";
 import styles from "./styles";
-
+import Icons from "react-native-vector-icons/MaterialIcons";
 import { database, f } from "../../../config/config.js";
+import TouchableScale from "react-native-touchable-scale";
 
 export default class MapScreen extends Component {
   state = {
@@ -23,7 +22,13 @@ export default class MapScreen extends Component {
     region: null,
     rating: 0,
     count: 0,
-    mine: null
+    mine: null,
+    name: "Annonymous User",
+    dp: null,
+    routeNo: null,
+    trainName: null,
+    prevScreen: "",
+    expanded: false
   };
 
   componentDidMount() {
@@ -33,8 +38,10 @@ export default class MapScreen extends Component {
 
     if (this.state.uid == null) {
       this.setState({
-        uid: userId
+        uid: userId,
+        prevScreen: prevScreen
       });
+      this.getSharedUserDetails(userId);
     }
 
     if (userId !== null) {
@@ -47,7 +54,8 @@ export default class MapScreen extends Component {
           that.setState({
             current: snapshot.val().current,
             from: snapshot.val().from,
-            to: snapshot.val().to
+            to: snapshot.val().to,
+            routeNo: snapshot.val().routeNo
           });
 
           if (that.state.to !== null) {
@@ -85,7 +93,8 @@ export default class MapScreen extends Component {
           that.setState({
             current: snapshot.val().current,
             from: snapshot.val().from,
-            to: snapshot.val().to
+            to: snapshot.val().to,
+            trainName: snapshot.val().trainName
           });
 
           if (that.state.to !== null) {
@@ -118,6 +127,19 @@ export default class MapScreen extends Component {
         }
       }
     }
+  }
+
+  getSharedUserDetails(userId) {
+    var that = this;
+    database
+      .ref("/users")
+      .child(userId)
+      .once("value", function(data) {
+        that.setState({
+          name: data.val().first_name,
+          dp: data.val().dp
+        });
+      });
   }
 
   getCurrentUser() {
@@ -228,15 +250,16 @@ export default class MapScreen extends Component {
     const { current, to, from } = this.state;
 
     if (to !== null && from !== null) {
-    this.map.fitToCoordinates([current, from, to ], {
-        edgePadding: { top: 40, right: 40, bottom: 40, left: 40 },
+      this.map.fitToCoordinates([current, from, to], {
+        edgePadding: { top: 100, right: 100, bottom: 700, left: 100 },
         animated: true
       });
     }
   };
 
   render() {
-    const { uid, current, from, to, region } = this.state;
+    const { uid, current, from, to, region, routeNo, trainName } = this.state;
+    const { name, dp, prevScreen } = this.state;
     return (
       <View>
         <View style={styles.container}>
@@ -250,55 +273,117 @@ export default class MapScreen extends Component {
               ref={ref => {
                 this.map = ref;
               }}
-              onLayout ={() => this.fitCoordinates()}
+              onLayout={() => this.fitCoordinates()}
             >
               <Marker coordinate={from} />
-              <Marker coordinate={current} />
+              <Marker coordinate={current}>
+                <Image source={{ uri: dp }} style={styles.currentmarker} />
+              </Marker>
               <Marker coordinate={to} />
             </MapView>
           ) : (
             <ActivityIndicator size="large" color="#0000ff" />
           )}
-        </View>
-        <HeaderBar title={"View Shared Location"} backIcon={true} />
-
-        <View style={styles.textContainer}>
-          {uid !== null && this.getCurrentUser() === uid ? ( // if the shared person is current user
-            <View>
+          {this.state.current !== null ? (
+            <View style={styles.textContainer}>
               <TouchableOpacity
-                style={styles.cancelShareLocationButton}
-                onPress={() => this.cancelSharing()}
+                style={{ marginBottom: "75%", marginLeft: "90%" }}
+                onPress={() => this.props.navigation.goBack()}
               >
-                <Text style={styles.cancelText}> Cancel Sharing </Text>
+                <Icons name="cancel" size={26} />
               </TouchableOpacity>
+
+              {uid !== null && this.getCurrentUser() === uid ? ( // if the shared person is current user
+                <View>
+                  <TouchableOpacity
+                    style={styles.cancelShareLocationButton}
+                    onPress={() => this.cancelSharing()}
+                  >
+                    <Text style={styles.cancelText}> Cancel Sharing </Text>
+                  </TouchableOpacity>
+                </View>
+              ) : (
+                // id the shared person is another person rather than current user
+                <View style={styles.shareLocationButton}>
+                  {this.state.prevScreen !== null &&
+                  this.state.prevScreen === "BusScreen" ? (
+                    <TouchableScale>
+                      <View style={styles.rootView}>
+                        <View style={styles.child1}>
+                          <Image
+                            source={{ uri: dp }}
+                            style={styles.dpStyles}
+                            resizeMode="cover"
+                          />
+                          <View style={{ marginTop: "7%" }}>
+                            <Text style={styles.usernameStyle}>{name}</Text>
+                            <Text>started 10 min ago . for 20 more</Text>
+                          </View>
+                          <View style={styles.moreIcon}>
+                            <Icons name="more-vert" size={25} />
+                          </View>
+                        </View>
+                        <View style={{ flexDirection: "row" }}>
+                          <View style={{ marginLeft: "9%" }}>
+                            <Image
+                              source={require("../../images/location-points.png")}
+                              style={{ height: 70, width: 20 }}
+                            />
+                          </View>
+                          <View style={{ marginTop: "3%", marginLeft: "1%" }}>
+                            <Text style={styles.fromStyle}>{from.title2}</Text>
+                            <Text style={styles.toStyle}>{to.title1}</Text>
+                            <Text style={{ fontSize: 11 }}>Arrive 4.30pm</Text>
+                          </View>
+                          <View style={styles.busRouteView}>
+                            <Text style={styles.busRouteText}>{routeNo}</Text>
+                          </View>
+                        </View>
+                      </View>
+                    </TouchableScale>
+                  ) : (
+                    <TouchableScale>
+                      <View style={styles.rootView}>
+                        <View style={styles.child1}>
+                          <Image
+                            source={{ uri: dp }}
+                            style={styles.dpStyles}
+                            resizeMode="cover"
+                          />
+                          <View style={{ marginTop: "7%" }}>
+                            <Text style={styles.usernameStyle}>{name}</Text>
+                            <Text>started 10 min ago . for 20 more</Text>
+                          </View>
+                          <View style={styles.moreIcon}>
+                            <Icons name="more-vert" size={25} />
+                          </View>
+                        </View>
+                        <View style={{ flexDirection: "row" }}>
+                          <View style={{ marginLeft: "9%" }}>
+                            <Image
+                              source={require("../../images/location-points.png")}
+                              style={{ height: 70, width: 20 }}
+                            />
+                          </View>
+                          <View style={{ marginTop: "3%", marginLeft: "1%" }}>
+                            <Text style={styles.fromStyle}>{from.title2}</Text>
+                            <Text style={styles.toStyle}>{to.title1}</Text>
+                            <Text style={{ fontSize: 11 }}>Arrive 4.30pm</Text>
+                          </View>
+                          <View style={styles.trainNameView}>
+                            <Text style={styles.trainNameText}>
+                              {trainName}
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
+                    </TouchableScale>
+                  )}
+                </View>
+              )}
             </View>
           ) : (
-            // id the shared person is another person rather than current user
-            <View style={styles.shareLocationButton}>
-              <View style={{ width: "10%", paddingLeft: 20, paddingTop: 20 }}>
-                <Image
-                  source={require("../../images/user_image_1.jpg")}
-                  style={{
-                    height: 40,
-                    width: 40,
-                    borderRadius: 50
-                  }}
-                  resizeMode="cover"
-                />
-              </View>
-              <View style={{ width: "80%" }}>
-                <Text style={{ paddingLeft: 50, paddingTop: 20 }}>
-                  The idea with React Native Elements is more about component
-                  structure than actual design.
-                </Text>
-
-                <Rating
-                  imageSize={30}
-                  startingValue={this.state.rating}
-                  onFinishRating={num => this.updateRatings(num)}
-                />
-              </View>
-            </View>
+            <ActivityIndicator size="large" color="#0000ff" />
           )}
         </View>
       </View>
