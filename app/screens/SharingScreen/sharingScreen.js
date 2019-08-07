@@ -22,7 +22,8 @@ export default class MapScreen extends Component {
     to: null,
     region: null,
     rating: 0,
-    count: 0
+    count: 0,
+    mine: null
   };
 
   componentDidMount() {
@@ -224,18 +225,18 @@ export default class MapScreen extends Component {
   }
 
   fitCoordinates = () => {
-    const { from, to } = this.state;
+    const { current, to, from } = this.state;
 
     if (to !== null && from !== null) {
-      this.map.fitToCoordinates([from, to], {
-        edgePadding: { top: 100, right: 100, bottom: 100, left: 100 },
+    this.map.fitToCoordinates([current, from, to ], {
+        edgePadding: { top: 40, right: 40, bottom: 40, left: 40 },
         animated: true
       });
     }
   };
 
   render() {
-    const { uid, current, from, to } = this.state;
+    const { uid, current, from, to, region } = this.state;
     return (
       <View>
         <View style={styles.container}>
@@ -243,12 +244,13 @@ export default class MapScreen extends Component {
             <MapView
               provider={PROVIDER_GOOGLE} // remove if not using Google Maps
               style={styles.map}
-              region={current}
+              region={region}
               loadingEnabled
               showsUserLocation
               ref={ref => {
                 this.map = ref;
               }}
+              onLayout ={() => this.fitCoordinates()}
             >
               <Marker coordinate={from} />
               <Marker coordinate={current} />
