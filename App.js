@@ -4,7 +4,9 @@ import {
   createBottomTabNavigator,
   createAppContainer,
   createStackNavigator,
-  createSwitchNavigator
+  createSwitchNavigator,
+  createDrawerNavigator,
+  SafeAreaView
 } from "react-navigation";
 
 import CustomIcon from "./resources/customIcon.js";
@@ -20,6 +22,7 @@ import LandingScreen from "./app/screens/LandingScreen/landingScreen.js";
 import SignUpScreen from "./app/screens/SignUpScreen/signUpScreen.js";
 import ResetPasswordScreen from "./app/screens/ResetPasswordScreen/resetPasswordScreen.js";
 import OnboardScreen from "./app/screens/Onboarding/onboardingScreen.js";
+import SideNavigation from "./app/components/SideNav/sideNav.js";
 
 // bottom tab navigator to authed users
 const ScreenStack = createBottomTabNavigator(
@@ -37,7 +40,7 @@ const ScreenStack = createBottomTabNavigator(
           iconName = "bus";
         } else if (routeName === "Map") {
           return (
-            <View style={{marginBottom: 50}}>
+            <View style={{ marginBottom: 50 }}>
               <Image
                 source={require("./app/images/updated_logo.png")}
                 style={{
@@ -76,10 +79,25 @@ const ScreenStack = createBottomTabNavigator(
   }
 );
 
+const CustumDrawerComponent = props => (
+  <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+    <SideNavigation />
+  </SafeAreaView>
+);
+
+const sideNavigator = createDrawerNavigator(
+  {
+    S_Dashboard: ScreenStack
+  },
+  {
+    contentComponent: CustumDrawerComponent
+  }
+);
+
 const AuthStack = createStackNavigator(
   {
     App: {
-      screen: ScreenStack
+      screen: sideNavigator
     },
     ShareLocation: {
       screen: MapScreen

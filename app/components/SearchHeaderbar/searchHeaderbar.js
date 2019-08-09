@@ -3,6 +3,7 @@ import { TextInput, View, Image, Alert } from "react-native";
 import styles from "./styles.js";
 import { Icon } from "react-native-elements";
 import CustomIcon from "../../../resources/customIcon.js";
+import { database, f } from "../../../config/config.js";
 
 export default class SearchHeaderBar extends Component {
   constructor(props) {
@@ -10,8 +11,28 @@ export default class SearchHeaderBar extends Component {
   }
   state = {
     searchEnabled: false,
-    filterText: ""
+    filterText: "",
+    dp: null
   };
+
+  componentDidMount() {
+    this.getCurrentUser();
+  }
+
+  getCurrentUser() {
+    var currentUser = f.auth().currentUser;
+
+    var that = this;
+    database
+      .ref("/users")
+      .child(currentUser.uid)
+      .once("value", function(data) {
+        that.setState({
+          dp: data.val().dp
+        });
+      });
+      console.log(currentUser);
+  }
 
   getFilterText = () => {
     this.setState({ searchEnabled: false });
@@ -19,6 +40,7 @@ export default class SearchHeaderBar extends Component {
   };
 
   render() {
+    const { dp } = this.state;
     return (
       <View style={styles.navigationBar}>
         <View style={styles.titleArea}>
@@ -45,10 +67,15 @@ export default class SearchHeaderBar extends Component {
             </View>
           ) : (
             <View style={styles.titleArea}>
-              <Image
-                style={styles.profileImage}
-                source={require("../../images/user_image_1.jpg")}
-              />
+              {dp !== null ? (
+                <Image style={styles.profileImage} source={{ uri: dp }} />
+              ) : (
+                <Image
+                  style={styles.profileImage}
+                  source={require("../../images/user_image_1.jpg")}
+                />
+              )}
+
               <View style={{ marginLeft: 220 }}>
                 <CustomIcon
                   name="search"
@@ -64,15 +91,14 @@ export default class SearchHeaderBar extends Component {
                   color="black"
                   style={styles.customIcon}
                   size={20}
-                  onPress={() => Alert.alert(
-                    "Important",
-                    "This feature isn't implemented yet. Stay connected for future updates.",
-                    [
-                      {text: "OK"},
-                      {text: "Cancel"}
-                    ],
-                    {cancelable: false}
-                  )}
+                  onPress={() =>
+                    Alert.alert(
+                      "Important",
+                      "This feature isn't implemented yet. Stay connected for future updates.",
+                      [{ text: "OK" }, { text: "Cancel" }],
+                      { cancelable: false }
+                    )
+                  }
                 />
               </View>
             </View>
