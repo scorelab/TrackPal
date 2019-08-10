@@ -129,3 +129,5 @@ var mapStyle = [
       ]
     }
   ];
+
+  export const MapStyle = mapStyle;
