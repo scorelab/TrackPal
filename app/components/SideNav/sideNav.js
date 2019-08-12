@@ -73,7 +73,6 @@ export default class SideNavigation extends Component {
         <TouchableScale style={styles.scaleStyle}>
           <Text style={styles.fontStyle}>Settings</Text>
         </TouchableScale>
-
       </View>
     );
   }
