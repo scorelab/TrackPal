@@ -7,5 +7,7 @@ jest.useFakeTimers();
 
 test('renders correctly', () => {
   const tree = renderer.create(<SharingScreen/>).toJSON();
-  expect(tree).toMatchSnapshot();
+  expect(tree).toMatchSnapshot({
+      state: expect.any(String)
+  });
 });
