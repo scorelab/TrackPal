@@ -391,7 +391,7 @@ export default class MapScreen extends Component {
 
   render() {
     const { uid, current, from, to, region, routeNo, trainName } = this.state;
-    const { name, dp, prevScreen } = this.state;
+    const { name, dp } = this.state;
     return (
       <View>
         <View style={styles.container}>
@@ -406,7 +406,6 @@ export default class MapScreen extends Component {
                 this.map = ref;
               }}
               onLayout={() => this.fitCoordinates()}
-              customMapStyle={mapStyle}
             >
               <Marker coordinate={from} />
               <Marker coordinate={current}>
