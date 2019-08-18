@@ -155,21 +155,6 @@ export default class TrainScreen extends Component {
               }
             })}
           </ScrollView>
-          {/* <TouchbleScale
-            style={styles.shareLocationTouchableScale}
-            onPress={() =>
-              this.props.navigation.navigate("ShareLocation", {
-                prevScreen: "TrainScreen"
-              })
-            }
-          >
-            <View elevation={5}>
-              <Image
-                source={require("../../images/updated_logo.png")}
-                style={styles.shareLocationImage}
-              />
-            </View>
-          </TouchbleScale> */}
         </View>
       );
     }

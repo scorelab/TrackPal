@@ -1,11 +1,12 @@
 import { StyleSheet, Dimensions } from "react-native";
 let deviceWidth = Dimensions.get("window").width;
+let deviceHeight = Dimensions.get("window").height;
 
 export default (styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    height: 625,
-    width: 400,
+    height: deviceHeight,
+    width: deviceWidth,
     justifyContent: "flex-end",
     alignItems: "center"
   },
@@ -13,42 +14,38 @@ export default (styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject
   },
   textContainer: {
-    paddingTop: "125%",
+    marginTop: deviceHeight * 0.7,
     margin: 20
   },
   rowContainer: {
     flexDirection: "row",
     justifyContent: "space-between"
   },
-  headerPosition: {
-    paddingBottom: 20,
-    paddingLeft: deviceWidth / 2 - 90,
-    marginTop: 10,
-    borderRadius: 15,
-    fontSize: 20,
-    width: "100%",
-    color: "#00aced"
-  },
   textInput: {
     height: 45,
-    width: "45%",
+    width: "100%",
     borderRadius: 50,
-    backgroundColor: "#e8e8e8",
-    marginBottom: 15,
-    color: "#FFF",
-    paddingLeft: 10
+    backgroundColor: "white",
+    color: "black",
+    paddingLeft: 10,
+    borderColor: "rgba(0,0,0,0.2)",
+    borderWidth: 2,
+    width: "90%",
+    marginLeft: "5%",
+    marginTop: "3%"
   },
   shareLocationButton: {
     backgroundColor: "#00aced",
-    paddingBottom: 50,
-    marginTop: 10,
     alignItems: "center",
-    borderRadius: 50
+    borderRadius: 50,
+    width: "90%",
+    marginLeft: "5%",
+    marginTop: "5%"
   },
   touchableText: {
     color: "white",
-    paddingTop: 13,
-    fontSize: 18
+    fontSize: 18,
+    padding: 10
   },
   cancelLocationButton: {
     backgroundColor: "red",
@@ -56,5 +53,10 @@ export default (styles = StyleSheet.create({
     marginTop: 10,
     alignItems: "center",
     borderRadius: 50
+  },
+  cardViewStyles: {
+    backgroundColor: "white",
+    borderRadius: 20,
+    height: "100%"
   }
 }));
