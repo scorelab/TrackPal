@@ -28,7 +28,12 @@ import SideNavigation from "./app/components/SideNav/sideNav.js";
 const ScreenStack = createBottomTabNavigator(
   {
     Bus: { screen: BusScreen },
-    Map: { screen: MapScreen },
+    Map: {
+      screen: MapScreen,
+      navigationOptions: () => {
+        return { tabBarVisible: false };
+      }
+    },
     Train: { screen: TrainScreen }
   },
   {
@@ -46,7 +51,7 @@ const ScreenStack = createBottomTabNavigator(
                 style={{
                   height: 70,
                   width: 70,
-                  backgroundColor: "rgba(0,0,0,0.05)",
+                  backgroundColor: "white",
                   padding: 10,
                   borderRadius: 50,
                   borderColor: "rgba(0,0,0,0.09)",
