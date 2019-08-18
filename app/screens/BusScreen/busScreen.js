@@ -157,21 +157,6 @@ export default class BusScreen extends Component {
               }
             })}
           </ScrollView>
-          {/* <TouchbleScale
-            style={styles.shareLocationTouchableScale}
-            onPress={() =>
-              this.props.navigation.navigate("ShareLocation", {
-                prevScreen: "BusScreen"
-              })
-            }
-          >
-            <View elevation={5}>
-              <Image
-                source={require("../../images/updated_logo.png")}
-                style={styles.shareLocationImage}
-              />
-            </View>
-          </TouchbleScale> */}
         </View>
       );
     }
