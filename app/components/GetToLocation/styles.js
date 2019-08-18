@@ -14,7 +14,7 @@ export default StyleSheet.create({
     height: 54,
     marginHorizontal: 20,
     borderTopWidth: 0,
-    borderBottomWidth: 0,
+    borderBottomWidth: 0
   },
   textInput: {
     height: 54,
@@ -36,7 +36,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: "#DDD",
     fontSize: 18,
-    borderRadius:50
+    borderRadius: 50
   },
   listView: {
     borderWidth: 1,

@@ -36,7 +36,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: "#DDD",
     fontSize: 18,
-    borderRadius:50
+    borderRadius: 50
   },
   listView: {
     borderWidth: 1,
