@@ -4,13 +4,14 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
+  Switch,
+  KeyboardAvoidingView
 } from "react-native";
 import { f, database } from "../../../config/config.js";
 
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import SearchTo from "../../components/GetToLocation/searchView.js";
 import SearchFrom from "../../components/GetFromLocation/searchView.js";
-import HeaderBar from "../../components/HeaderBar/headerBar.js";
 
 import styles from "./styles";
 
@@ -23,7 +24,8 @@ export default class MapScreen extends Component {
     userName: null,
     shared: true,
     trainName: null,
-    destination: null
+    destination: null,
+    switchvalue: false // sharing the bus details - if this is true -> sharing the train details
   };
 
   async componentDidMount() {
@@ -55,11 +57,6 @@ export default class MapScreen extends Component {
         userName: auth.uid
       });
     });
-  }
-
-  componentDidUpdate() {
-    console.log("inside component did update");
-    this.fitCoordinates();
   }
 
   getFromLocation = (data, { geometry }) => {
@@ -96,9 +93,9 @@ export default class MapScreen extends Component {
       alert("Sorry!, You are not a registered User! Please Register First.");
       this.props.navigation.navigate("Login");
     } else {
-      const prevScreen = this.props.navigation.state.params.prevScreen;
+      const switchvalue = this.state;
 
-      if (prevScreen === "BusScreen") {
+      if (switchvalue) {
         const { region, from, to, routeNo, userName, destination } = this.state;
         if (from !== null && to !== null && routeNo !== null) {
           if (region !== null) {
@@ -132,7 +129,7 @@ export default class MapScreen extends Component {
             "Please check the input fields, One of them or some of them are not correct!"
           );
         }
-      } else if (prevScreen === "TrainScreen") {
+      } else if (!switchvalue) {
         const {
           region,
           from,
@@ -173,18 +170,18 @@ export default class MapScreen extends Component {
   fitCoordinates = () => {
     const { region, from, to } = this.state;
 
-    if ( to !== null && from !== null ) {
+    if (to !== null && from !== null) {
       this.map.fitToCoordinates([region, from, to], {
         edgePadding: { top: 100, right: 100, bottom: 100, left: 100 },
         animated: true
       });
     }
-  }
+    console.log("fittocoords");
+  };
 
   render() {
     const { region, from, to } = this.state;
-    const prevScreen = this.props.navigation.state.params.prevScreen;
-
+    const switchvalue = this.state;
     return (
       <View>
         <View style={styles.container}>
@@ -202,56 +199,47 @@ export default class MapScreen extends Component {
             {to && <Marker coordinate={to} />}
           </MapView>
         </View>
-        <HeaderBar title={"Share Your Location"} backIcon={true} />
-
-        <View style={styles.textContainer}>
-          {prevScreen === "BusScreen" ? (
-            <TextInput
-              placeholder="Bus Route Number"
-              placeholderTextColor="#000"
-              style={{
-                height: 45,
-                width: "100%",
-                borderRadius: 50,
-                backgroundColor: "#e8e8e8",
-                marginBottom: 15,
-                color: "black",
-                paddingLeft: 10,
-                marginTop: 50
-              }}
-              onChangeText={text => this.setState({ routeNo: text })}
-            />
-          ) : (
-            <TextInput
-              placeholder="Train Name"
-              placeholderTextColor="#000"
-              style={{
-                height: 45,
-                width: "100%",
-                borderRadius: 50,
-                backgroundColor: "#e8e8e8",
-                marginBottom: 15,
-                color: "#FFF",
-                paddingLeft: 10,
-                marginTop: 50
-              }}
-              onChangeText={text => this.setState({ trainName: text })}
-            />
-          )}
-
-          {this.state.shared == true ? (
-            <TouchableOpacity
-              style={styles.shareLocationButton}
-              onPress={this.shareLocation}
-            >
-              <Text style={styles.touchableText}>Share Location</Text>
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity style={styles.cancelLocationButton}>
-              <Text style={styles.touchableText}>Cancel Sharing</Text>
-            </TouchableOpacity>
-          )}
-        </View>
+        <KeyboardAvoidingView>
+          <View style={styles.textContainer}>
+            <View style={styles.cardViewStyles}>
+              <Switch
+                value={switchvalue}
+                trackColor="#00aced"
+                style={{ marginRight: "2%", marginTop: "2%" }}
+                onValueChange={value => this.setState({ switchvalue: value })}
+              />
+              {switchvalue ? (
+                <TextInput
+                  onFocus={this.fitCoordinates}
+                  placeholder="Bus Route Number"
+                  placeholderTextColor="rgba(0,0,0,0.5)"
+                  style={styles.textInput}
+                  onChangeText={text => this.setState({ routeNo: text })}
+                />
+              ) : (
+                <TextInput
+                  onFocus={this.fitCoordinates}
+                  placeholder="Train Name"
+                  placeholderTextColor="rgba(0,0,0,0.5)"
+                  style={styles.textInput}
+                  onChangeText={text => this.setState({ trainName: text })}
+                />
+              )}
+              {this.state.shared == true ? (
+                <TouchableOpacity
+                  style={styles.shareLocationButton}
+                  onPress={this.shareLocation}
+                >
+                  <Text style={styles.touchableText}>Share Location</Text>
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity style={styles.cancelLocationButton}>
+                  <Text style={styles.touchableText}>Cancel Sharing</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+          </View>
+        </KeyboardAvoidingView>
         {this.state.shared && (
           <SearchFrom onLocationSelected={this.getFromLocation} />
         )}
