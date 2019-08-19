@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessibilityIgnoresInvertColors={true}
+  style={
+    Object {
+      "flex": 1,
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../app/images/landing.jpg",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": "100%",
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(255, 255, 255, 0.7)",
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 0.5,
+              "justifyContent": "flex-start",
+              "marginBottom": 30,
+              "marginTop": 266.8,
+            }
+          }
+        >
+          <Text>
+            Logo Goes Here
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "margin": 10,
+                  "marginTop": 50,
+                },
+              ]
+            }
+          >
+            <View
+              animating={true}
+              animationDuration={1600}
+              animationEasing={[Function]}
+              color="black"
+              interaction={true}
+              renderComponent={[Function]}
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
+              waveFactor={0.54}
+              waveMode="fill"
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "bottom": 0,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "black",
+                      "borderRadius": 20,
+                      "borderWidth": 0,
+                      "height": 40,
+                      "opacity": 1,
+                      "transform": Array [
+                        Object {
+                          "scale": 0,
+                        },
+                      ],
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "bottom": 0,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "black",
+                      "borderRadius": 20,
+                      "borderWidth": 0,
+                      "height": 40,
+                      "opacity": 1,
+                      "transform": Array [
+                        Object {
+                          "scale": 0,
+                        },
+                      ],
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "bottom": 0,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "black",
+                      "borderRadius": 20,
+                      "borderWidth": 0,
+                      "height": 40,
+                      "opacity": 1,
+                      "transform": Array [
+                        Object {
+                          "scale": 0,
+                        },
+                      ],
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "bottom": 0,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "black",
+                      "borderRadius": 20,
+                      "borderWidth": 0,
+                      "height": 40,
+                      "opacity": 1,
+                      "transform": Array [
+                        Object {
+                          "scale": 0,
+                        },
+                      ],
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;

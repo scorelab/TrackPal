@@ -49,10 +49,11 @@ export default (styles = StyleSheet.create({
   },
   cancelLocationButton: {
     backgroundColor: "red",
-    paddingBottom: 50,
-    marginTop: 10,
     alignItems: "center",
-    borderRadius: 50
+    borderRadius: 50,
+    width: "90%",
+    marginLeft: "5%",
+    marginTop: "5%"
   },
   cardViewStyles: {
     backgroundColor: "white",

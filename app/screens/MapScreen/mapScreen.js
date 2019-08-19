@@ -211,6 +211,7 @@ export default class MapScreen extends Component {
               {switchvalue ? (
                 <TextInput
                   onFocus={this.fitCoordinates}
+                  onBlur={this.fitCoordinates}
                   placeholder="Bus Route Number"
                   placeholderTextColor="rgba(0,0,0,0.5)"
                   style={styles.textInput}
@@ -219,6 +220,7 @@ export default class MapScreen extends Component {
               ) : (
                 <TextInput
                   onFocus={this.fitCoordinates}
+                  onBlur={this.fitCoordinates}
                   placeholder="Train Name"
                   placeholderTextColor="rgba(0,0,0,0.5)"
                   style={styles.textInput}
