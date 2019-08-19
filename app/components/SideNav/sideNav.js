@@ -21,15 +21,16 @@ export default class SideNavigation extends Component {
     var currentUser = f.auth().currentUser;
 
     var that = this;
-    database
-      .ref("/users")
-      .child(currentUser.uid)
-      .once("value", function(data) {
-        that.setState({
-          dp: data.val().dp
+    if (currentUser !== null) {
+      database
+        .ref("/users")
+        .child(currentUser.uid)
+        .once("value", function(data) {
+          that.setState({
+            dp: data.val().dp
+          });
         });
-      });
-    console.log(currentUser);
+    }
   }
 
   render() {
