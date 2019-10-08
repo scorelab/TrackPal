@@ -9,7 +9,7 @@
   "dependencies": {
     "email-validator": "^2.0.4",
     "firebase": "^7.1.0",
-    "geolib": "^2.0.24",
+    "geolib": "^3.0.4",
     "react": "16.10.2",
     "react-native": "0.58.6",
     "react-native-app-intro-slider": "^3.0.0",
