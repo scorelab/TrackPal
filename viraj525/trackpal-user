@@ -1,0 +1,88 @@
+<html>
+<head>
+<script>
+function validateForm()
+{
+var name=document.form2.User_Name.value;
+var UID=document.form2.user_id.value;
+var EID=document.form2.Email_ID.value;
+var Address=document.form2.Address.value;
+var city=document.form2.city.value;
+
+if(name==null||name=="")
+{
+alert("Please Enter the name properly.");
+document.form2.User_name.focus();
+return false;
+}
+if(UID==null||UID=="")
+{
+alert("Please Enter the User ID properly.");
+document.form2.user_id.focus();
+return false;
+}
+if(EID==null||EID=="")
+{
+alert("Please Enter the Email-ID properly.");
+document.form2.Email_ID.focus();
+return false;
+}
+if((document.form2.Gener[0].checked==false)&&(document.form2.Gender[1].checked==false))
+{
+alert("Please choose your gender: Male or Female");
+document.form2.Gender.focus();
+return false;
+}
+if(Address==null||Address=="")
+{
+alert("Please Enter the Address properly.");
+document.form2.Address.focus();
+return false;
+}
+if(city==null||city=="")
+{
+alert("Please Enter the city properly.");
+document.form2.city.focus();
+return false;
+}
+}
+</script>
+<meta content="text/html; charset=ISO-8859-1"
+http-equiv="content-type">
+<title>form 2</title>
+</head>
+<body style="color: rgb(0, 0, 153); background-color: yellow;"
+alink="white" link="white" vlink="yellow">
+<br>
+<form method="post" action="test.html" name="form2"
+onsubmit="return validateForm()">
+<div style="text-align: center;">
+<h1 style="text-align: center;"> <big><big><big>TrackPal</big></big></big></h1>
+<br>
+<big><big><big><big><big><big> User </big></big></big></big></big></big><br>
+<img src="../../Downloads/user.png" alt=""><br>
+<br>
+<br>
+<br>
+User Name &nbsp; &nbsp; <input maxlength="10" size="20"
+name="User_Name"><br>
+<br>
+User ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
+maxlength="10" size="20" name="user_id"><br>
+<br>
+Email id &nbsp; &nbsp; &nbsp; &nbsp; <input name="Email_ID"><br>
+<br>
+Gender: <input checked="checked" name="Gender" value="male"
+type="radio">Male&nbsp;&nbsp; <input name="Gender" value="Female"
+type="radio">Female<br>
+Current Location Name &nbsp; &nbsp;&nbsp; <textarea cols="30" rows="3"
+name="Address">Insert Address Here...... </textarea> <br>
+<br>
+City <input size="20" name="city"><br>
+<input name="Submit" value="Submit" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="Reset" value="Reset" type="reset"> <br>
+</div>
+</form>
+</body>
+</html>
+
