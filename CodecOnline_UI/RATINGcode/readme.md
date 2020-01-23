@@ -1,6 +1,6 @@
 ## TrackPal Rating UI & User profile
 **GCI 2019 task- TrackPal ] - Implement User profile (UI only)**
-This is the code for rating the posts on the feed .
+This is the code for rating the posts on the feed .Its different from the design because i wasn't able to implement that in it.
 Thank you,
 CodecOnline
 
