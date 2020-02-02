@@ -1,36 +1,37 @@
 {
   "project_info": {
-    "project_number": "533683482638",
-    "firebase_url": "https://trackpal-1fee0.firebaseio.com",
-    "project_id": "trackpal-1fee0",
-    "storage_bucket": "trackpal-1fee0.appspot.com"
+    "project_number": "576848474049",
+    "firebase_url": "https://sample-trackp.firebaseio.com",
+    "project_id": "sample-trackp",
+    "storage_bucket": "sample-trackp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:533683482638:android:d2177b5955199de4",
+        "mobilesdk_app_id": "1:576848474049:android:98782afbcfc56fc28e4940",
         "android_client_info": {
           "package_name": "com.trackpal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "533683482638-hd34qs7sdi63adf0sq4vjutloe7j9h55.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.trackpal",
-            "certificate_hash": "dc8b963d827c409b2c8585eaa140534e7074a11f"
-          }
+          "client_id": "576848474049-u1j2p7ph3cbqh4n2b2h23b9mf39ebc2r.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyANfZWAONUsX1-kDr9uYWcyPtNZAk4EZ-E"
+          "current_key": "AIzaSyBuDnTI-TBIxwNF833w2EqXaRJcH5o3lDA"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576848474049-u1j2p7ph3cbqh4n2b2h23b9mf39ebc2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

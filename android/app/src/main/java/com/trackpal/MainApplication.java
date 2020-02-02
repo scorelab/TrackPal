@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.horcrux.svg.SvgPackage;
-import co.apptailor.googlesignin.RNGoogleSigninPackage;
+// import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -39,8 +39,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new SvgPackage(),
-            new RNGoogleSigninPackage(),
-            new FBSDKPackage(mCallbackManager),
+            //new RNGoogleSigninPackage(),
+            new FBSDKPackage(),
             new RNGestureHandlerPackage(),
             new MapsPackage(),
             new VectorIconsPackage()
