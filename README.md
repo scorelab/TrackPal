@@ -27,7 +27,7 @@ TrackPal is a public based mobile application that will be implemented using rea
 
 ### 🚀 [For Developers](./docs/developer.md)
 ### 📟 [For Users](./docs/user.md)
-### 📘 [For Beginers](./docs/beginer.md)
+### 📘 [For Beginners](./docs/beginer.md)
 
 *4. Run the project
     If you config all those dependencies your are now free to run the application in your android device. Paste the following command in the terminal.*
