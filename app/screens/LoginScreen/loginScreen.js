@@ -14,11 +14,11 @@ import { SocialIcon } from "react-native-elements";
 import styles from "./style.js";
 import * as EmailValidator from "email-validator";
 import { f, webClinetID } from "../../../config/config.js";
-import {
-  GoogleSignin,
-  GoogleSigninButton,
-  statusCodes
-} from "react-native-google-signin";
+// import {
+//   GoogleSignin,
+//   GoogleSigninButton,
+//   statusCodes
+// } from "react-native-google-signin";
 const FBSDK = require("react-native-fbsdk");
 const { LoginManager, AccessToken } = FBSDK;
 
@@ -36,10 +36,10 @@ export default class LoginScreen extends Component {
   }
 
   componentDidMount() {
-    GoogleSignin.configure({
-      webClientId: webClinetID,
-      offlineAccess: true
-    });
+    // GoogleSignin.configure({
+    //   webClientId: webClinetID,
+    //   offlineAccess: true
+    // });
 
     f.auth().onAuthStateChanged(auth => {
       if (auth) {
@@ -166,67 +166,67 @@ export default class LoginScreen extends Component {
   };
 
   // google sign in method
-  _googleSignIn = async () => {
-    this.setState({ showSpinner: true });
-    var that = this;
-    try {
-      await GoogleSignin.hasPlayServices();
-      GoogleSignin.signIn()
-        .then(data => {
-          const credential = f.auth.GoogleAuthProvider.credential(
-            data.idToken,
-            data.accessToken
-          );
-          f.auth()
-            .signInWithCredential(credential)
-            .then(user => {
-              const newUser = {
-                first_name: user.displayName,
-                last_name: "",
-                uid: user.uid
-              };
+  // _googleSignIn = async () => {
+  //   this.setState({ showSpinner: true });
+  //   var that = this;
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     GoogleSignin.signIn()
+  //       .then(data => {
+  //         const credential = f.auth.GoogleAuthProvider.credential(
+  //           data.idToken,
+  //           data.accessToken
+  //         );
+  //         f.auth()
+  //           .signInWithCredential(credential)
+  //           .then(user => {
+  //             const newUser = {
+  //               first_name: user.displayName,
+  //               last_name: "",
+  //               uid: user.uid
+  //             };
 
-              that.createGoogleUser(user.uid, newUser, user.photoURL);
-            });
-        })
-        .then(() => {
-          that.props.navigation.navigate("Onboard");
-        })
-        .catch(error => {
-          alert(error.code);
-          that.setState({ showSpinner: false });
-        });
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        alert(error.code);
-        this.setState({ showSpinner: false });
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        alert(error.code);
-        this.setState({ showSpinner: false });
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        alert(error.code);
-        this.setState({ showSpinner: false });
-      } else {
-        alert(error.code);
-        this.setState({ showSpinner: false });
-      }
-    }
-  };
+  //             that.createGoogleUser(user.uid, newUser, user.photoURL);
+  //           });
+  //       })
+  //       .then(() => {
+  //         that.props.navigation.navigate("Onboard");
+  //       })
+  //       .catch(error => {
+  //         alert(error.code);
+  //         that.setState({ showSpinner: false });
+  //       });
+  //   } catch (error) {
+  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+  //       alert(error.code);
+  //       this.setState({ showSpinner: false });
+  //     } else if (error.code === statusCodes.IN_PROGRESS) {
+  //       alert(error.code);
+  //       this.setState({ showSpinner: false });
+  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+  //       alert(error.code);
+  //       this.setState({ showSpinner: false });
+  //     } else {
+  //       alert(error.code);
+  //       this.setState({ showSpinner: false });
+  //     }
+  //   }
+  // };
 
   // method to create a google sign in user document in the firebase user collection
-  createGoogleUser = (uid, userData, dp) => {
-    const defaults = {
-      uid,
-      dp,
-      ageRange: [20, 30],
-      ratings: 5,
-      numOfChcances: 1
-    };
-    f.database()
-      .ref("users")
-      .child(uid)
-      .update({ ...userData, ...defaults });
-  };
+  // createGoogleUser = (uid, userData, dp) => {
+  //   const defaults = {
+  //     uid,
+  //     dp,
+  //     ageRange: [20, 30],
+  //     ratings: 5,
+  //     numOfChcances: 1
+  //   };
+  //   f.database()
+  //     .ref("users")
+  //     .child(uid)
+  //     .update({ ...userData, ...defaults });
+  // };
 
   // method for viewing
   render() {
@@ -286,12 +286,12 @@ export default class LoginScreen extends Component {
                     />
                   </TouchableOpacity>
 
-                  <GoogleSigninButton
+                  {/* <GoogleSigninButton
                     style={{ width: 300, height: 50 }}
                     size={GoogleSigninButton.Size.Wide}
                     color={GoogleSigninButton.Color.Dark}
                     onPress={this._googleSignIn}
-                  />
+                  /> */}
 
                   <TouchableOpacity
                     onPress={() => this.setState({ social: true })}

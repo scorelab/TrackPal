@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { StyleSheet, View, ActivityIndicator, Image } from "react-native";
 import {
-  createBottomTabNavigator,
   createAppContainer,
   createStackNavigator,
   createSwitchNavigator,
   createDrawerNavigator,
   SafeAreaView
 } from "react-navigation";
+import createBottomTabNavigator from "react-navigation-tabs";
 
 import CustomIcon from "./resources/customIcon.js";
 
