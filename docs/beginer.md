@@ -1,6 +1,6 @@
 # TrackPal - Go-social Community App
 
-## Beginner Guideline
+## Beginer Guideline
 
 Please note that if you follow these steps to build the application, the app won't work as expected but can be used ti build the app and find issues.
 
