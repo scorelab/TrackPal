@@ -14,22 +14,27 @@ TrackPal is a public based mobile application that will be implemented using rea
 
 **Note : This document currently only supports for Android. iOS document will be available soon after the iOS build.**
 
-*1. Fork the original repository and use your own branch for your developments. To contribute for the original project, use master branch.*
+_1. Fork the original repository and use your own branch for your developments. To contribute for the original project, use master branch._
 
     `git clone https://github.com/scorelab/TrackPal.git`
 
-*2. Install npm packages
-    open a terminal or cmd and,*
+_2. Install npm packages
+open a terminal or cmd and,_
 
     `npm install`
 
-*3. Follow the most relevant link to config the project with respect to your needs.*
+_3. Follow the most relevant link to config the project with respect to your needs._
 
 ### 🚀 [For Developers](./docs/developer.md)
+
 ### 📟 [For Users](./docs/user.md)
 
-*4. Run the project
-    If you config all those dependencies your are now free to run the application in your android device. Paste the following command in the terminal.*
+\*4. Before run the project you migh want to run this command.
+
+    `npx jetify`
+
+_5. Run the project
+If you config all those dependencies your are now free to run the application in your android device. Paste the following command in the terminal._
 
     `react-native run-android`
 
