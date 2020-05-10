@@ -41,21 +41,35 @@ export default class LoginScreen extends Component {
       offlineAccess: true
     });
 
-    f.auth().onAuthStateChanged(auth => {
-      if (auth) {
-        this.firebaseRef = f.database().ref("users");
-        this.firebaseRef.child(auth.uid).on("value", snap => {
-          const user = snap.val();
-          if (user != null) {
-            this.firebaseRef.child(auth.uid).off("value");
+    const { navigate } = this.props.navigation;
 
-            this.props.navigation.navigate("App");
-          }
-        });
-      } else {
-        this.setState({ showSpinner: false });
+    f.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        console.log("user: " + JSON.stringify(user));
+        navigate('App');
       }
+      // else {
+      //   this.setState({ showSpinner: false });
+      // }
     });
+    this.setState({ showSpinner: false });
+
+    // f.auth().onAuthStateChanged(auth => {
+    //   if (auth) {
+    //     this.firebaseRef = f.database().ref("users");
+    //     this.firebaseRef.child(auth.uid).on("value", snap => {
+    //       const user = snap.val();
+    //       if (user != null) {
+    //         console.log("User: "+JSON.stringify(user));
+    //         this.firebaseRef.child(auth.uid).off("value");
+
+    //         this.props.navigation.navigate("App");
+    //       }
+    //     });
+    //   } else {
+    //     this.setState({ showSpinner: false });
+    //   }
+    // });
   }
 
   // facebook sign in invoking method
@@ -66,7 +80,7 @@ export default class LoginScreen extends Component {
       "user_birthday",
       "email",
       "user_photos"
-    ]).then(result => this._handleCallBack(result), function(error) {
+    ]).then(result => this._handleCallBack(result), function (error) {
       alert("Login fail with error: " + error);
       this.setState({ showSpinner: false });
     });
@@ -83,14 +97,14 @@ export default class LoginScreen extends Component {
         const token = data.accessToken;
         fetch(
           "https://graph.facebook.com/v2.8/me?fields=id,first_name,last_name,gender,birthday&access_token=" +
-            token
+          token
         )
           .then(response => response.json())
           .then(json => {
             const imageSize = 120;
             const facebookID = json.id;
             const fbImage = `https://graph.facebook.com/${facebookID}/picture?height=${imageSize}`;
-            this.authenticate(data.accessToken).then(function(result) {
+            this.authenticate(data.accessToken).then(function (result) {
               const { uid } = result;
               _this.createUser(uid, json, token, fbImage);
             });
@@ -98,7 +112,7 @@ export default class LoginScreen extends Component {
           .then(() => {
             _this.props.navigation.navigate("Onboard");
           })
-          .catch(function(err) {
+          .catch(function (err) {
             console.log(err);
           });
       });
@@ -141,11 +155,12 @@ export default class LoginScreen extends Component {
 
     f.auth()
       .signInWithEmailAndPassword(email, password)
-      .then(function(data) {
+      .then(function (data) {
+        console.log("Login: " + JSON.stringify(data));
         that.setState({ isLogging: false });
         navigate("App");
       })
-      .catch(function(error) {
+      .catch(function (error) {
         var errorMessage = error.message;
         alert(errorMessage.toString());
         that.setState({ isLogging: false });
@@ -154,6 +169,7 @@ export default class LoginScreen extends Component {
 
   // method to validate the user email and password
   _signInAsync = async () => {
+    console.log("Login");
     if (EmailValidator.validate(this.state.email) === true) {
       if (this.state.Pasword != "") {
         this.login();
@@ -309,31 +325,31 @@ export default class LoginScreen extends Component {
                   </TouchableOpacity>
                 </View>
               ) : (
-                <KeyboardAvoidingView behavior="position">
-                  <View style={styles.containerNew}>
-                    <TextInput
-                      placeholder="Email"
-                      keyboardType="email-address"
-                      placeholderTextColor="white"
-                      style={styles.input}
-                      onChangeText={text => this.setState({ email: text })}
-                    />
-                    <TextInput
-                      placeholder="Pasword"
-                      secureTextEntry={true}
-                      placeholderTextColor="white"
-                      style={styles.input}
-                      onChangeText={text => this.setState({ password: text })}
-                    />
-                    <TouchableOpacity
-                      style={styles.loginTouchableOpacity}
-                      onPress={this._signInAsync}
-                    >
-                      <Text style={styles.loginText}>LOGIN</Text>
-                    </TouchableOpacity>
-                  </View>
-                </KeyboardAvoidingView>
-              )}
+                  <KeyboardAvoidingView behavior="position">
+                    <View style={styles.containerNew}>
+                      <TextInput
+                        placeholder="Email"
+                        keyboardType="email-address"
+                        placeholderTextColor="white"
+                        style={styles.input}
+                        onChangeText={text => this.setState({ email: text })}
+                      />
+                      <TextInput
+                        placeholder="Pasword"
+                        secureTextEntry={true}
+                        placeholderTextColor="white"
+                        style={styles.input}
+                        onChangeText={text => this.setState({ password: text })}
+                      />
+                      <TouchableOpacity
+                        style={styles.loginTouchableOpacity}
+                        onPress={this._signInAsync}
+                      >
+                        <Text style={styles.loginText}>LOGIN</Text>
+                      </TouchableOpacity>
+                    </View>
+                  </KeyboardAvoidingView>
+                )}
 
               {this.state.social === false ? (
                 <View style={styles.container3}>
@@ -344,24 +360,24 @@ export default class LoginScreen extends Component {
                   </TouchableOpacity>
                 </View>
               ) : (
-                <View style={styles.container4}>
-                  <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate("SignUp")}
-                  >
-                    <Text style={styles.text}>I don't have an account</Text>
-                  </TouchableOpacity>
-                  <View>
-                    <Text style={styles.orText}>or</Text>
+                  <View style={styles.container4}>
+                    <TouchableOpacity
+                      onPress={() => this.props.navigation.navigate("SignUp")}
+                    >
+                      <Text style={styles.text}>I don't have an account</Text>
+                    </TouchableOpacity>
+                    <View>
+                      <Text style={styles.orText}>or</Text>
+                    </View>
+                    <TouchableOpacity
+                      onPress={() =>
+                        this.props.navigation.navigate("ResetPassword")
+                      }
+                    >
+                      <Text style={styles.text}>Forgot Password?</Text>
+                    </TouchableOpacity>
                   </View>
-                  <TouchableOpacity
-                    onPress={() =>
-                      this.props.navigation.navigate("ResetPassword")
-                    }
-                  >
-                    <Text style={styles.text}>Forgot Password?</Text>
-                  </TouchableOpacity>
-                </View>
-              )}
+                )}
             </ScrollView>
           </View>
         </ImageBackground>
